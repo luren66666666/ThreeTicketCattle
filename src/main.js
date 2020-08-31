@@ -5,8 +5,9 @@ import store from './store'
 
 import "amfe-flexible";
 
-import { Button, Tabbar, TabbarItem } from 'vant';
+import { Button, Tabbar, TabbarItem, Search } from 'vant';
 Vue.use(Button);
+Vue.use(Search);
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
 
