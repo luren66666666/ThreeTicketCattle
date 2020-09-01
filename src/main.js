@@ -15,7 +15,8 @@ import {
     Grid,
     GridItem,
     Tab,
-    Tabs
+    Tabs,
+    NavBar
 } from 'vant';
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
@@ -28,7 +29,7 @@ Vue.use(Grid) //Grid 宫格
 Vue.use(GridItem) //Grid 宫格
 Vue.use(Tab) //Tab 标签页
 Vue.use(Tabs) //Tab 标签页
-
+Vue.use(NavBar); //NavBar 导航栏
 
 Vue.config.productionTip = false
 
