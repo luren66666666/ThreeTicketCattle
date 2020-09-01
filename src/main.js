@@ -32,7 +32,9 @@ import {
     Calendar,
     Cell,
     Card,
-    Tag
+    Tag,
+    Image as VanImage,
+    CellGroup,
 } from 'vant';
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
@@ -52,6 +54,8 @@ Vue.use(Calendar); //日期
 Vue.use(Cell); //日期
 Vue.use(Card); //分类列表
 Vue.use(Tag); //分类列表
+Vue.use(VanImage); //图片头像
+Vue.use(CellGroup); //展示箭头
 
 Vue.config.productionTip = false
 
