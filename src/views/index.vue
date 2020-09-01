@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="Bottom-TAB-bar">
         <router-view></router-view>
         <van-tabbar v-model="active" active-color="red" inactive-color="#000" route fixed :placeholder="true" >
             <van-tabbar-item :icon="value.icon" :to="value.to" v-for="(value,index) in vanTabberArr" :key="index">{{value.title}}</van-tabbar-item>
@@ -44,10 +44,12 @@ export default {
 }
 </script>
 <style lang="scss" >
+.Bottom-TAB-bar{
 .van-icon-wap-home-o{
     font-size: 21px;
 }
 .van-tabbar-item__text{
     font-size: 10px;
+}
 }
 </style>
