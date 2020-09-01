@@ -22,10 +22,11 @@ const routes = [
         path: '/home',
         redirect: '/home/recommend'
     },
-    //主页home路由
+    //登录注册界面
     {
         path: '/login',
-        component: () => import('../components/register/Register.vue')
+        component: () =>
+            import ('../components/register/Register.vue')
     },
     {
         path: '/home',

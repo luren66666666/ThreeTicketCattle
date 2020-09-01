@@ -16,7 +16,7 @@
         
         <!-- 版型 -->
         <div class="boxesmodel">
-            <!-- 释放压力 -->
+            <!-- 释放压力 +图片-->
             <div class="imgboxesmodel">
                 <img src="../../assets/images/票牛-推荐/tu1@3x.png" alt="">
                 <span class="span1">释放压力</span>
@@ -38,6 +38,13 @@
                 </div>
                 <span class="span3">必打卡的展</span>
             </div>
+
+            <!-- 释放压力 +图片-->
+            <!-- <div class="imgboxesmodel2">
+                <img src="../../assets/images/票牛-推荐/tu1@3x.png" alt="">
+                <span class="span1">释放压力</span>
+                <span class="span2">热展一网打尽</span>
+            </div> -->
         </div>
 
         
@@ -134,13 +141,16 @@ export default {
         position: relative;
             p{
                 width: 186px;
-                height: 15px;
+                height: 20px;
                 font-size: 16px;
                 color: #1F2020;
                 font-family: Bold;
                 position: absolute;
                 left: 18px;
                 top: 20px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             .span1{
                 font-size: 16px;
@@ -211,6 +221,34 @@ export default {
                 top: 174px;
             }
         }
+        .imgboxesmode2{
+            margin-top: 42px;
+            width: 100%;
+            height: 70px;
+            position: relative;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+            span{
+                position: absolute;
+            }
+            .span1{
+                left: 13px;
+                top: 16px;
+                font-size: 21px;
+                color: #FFFFFF;
+                font-family: Bold;
+            }
+            .span2{
+                left: 15px;
+                top: 43px;
+                color: #FFFFFF;
+                font-size: 12px;
+                font-family: Medium;
+            }
+        }
+
     }
     
 }
