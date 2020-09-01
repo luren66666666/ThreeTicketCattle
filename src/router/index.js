@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-31 20:00:24
+ * @LastEditTime: 2020-09-01 14:34:24
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \票牛\ThreeTicketCattle\src\router\index.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -15,6 +23,10 @@ const routes = [
         redirect: '/home/recommend'
     },
     //主页home路由
+    {
+        path: '/login',
+        component: () => import('../components/register/Register.vue')
+    },
     {
         path: '/home',
         component: () =>
