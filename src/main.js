@@ -18,7 +18,13 @@ import {
     GridItem,
     Tab,
     Tabs,
-    NavBar
+    NavBar,
+    DropdownMenu,
+    DropdownItem,
+    Calendar,
+    Cell,
+    Card,
+    Tag
 } from 'vant';
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
@@ -32,6 +38,12 @@ Vue.use(GridItem) //Grid 宫格
 Vue.use(Tab) //Tab 标签页
 Vue.use(Tabs) //Tab 标签页
 Vue.use(NavBar); //NavBar 导航栏
+Vue.use(DropdownMenu); //综合排序
+Vue.use(DropdownItem); //综合排序
+Vue.use(Calendar); //日期
+Vue.use(Cell); //日期
+Vue.use(Card); //分类列表
+Vue.use(Tag); //分类列表
 
 Vue.config.productionTip = false
 
