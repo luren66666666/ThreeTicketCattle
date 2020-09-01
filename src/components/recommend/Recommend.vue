@@ -25,7 +25,18 @@
 
             <!-- 两个列表 -->
             <div class="boxesli" v-for="(value,index) in 2" :key="index">
-
+                <p>EPSON teamLab无界美啊手动阀</p>
+                <span class="span1">2020.03.06-08.31</span>
+                <span class="span2">TeamLab Borderl ess 上海 无界美术馆</span>
+                <img src="../../assets/images/票牛-推荐/图层 3.png" alt="">
+                <div class="price">
+                    <div class="priceRed">239</div>
+                    <span class="spanPrice">元起</span>
+                </div>
+                <div class="title">
+                    <div class="titleText">必打卡的展</div>
+                </div>
+                <span class="span3">必打卡的展</span>
             </div>
         </div>
 
@@ -63,6 +74,7 @@ export default {
         }
         .van-nav-bar__title{
             font-size: 16px;
+            font-family: Bold;
         }
     }
     .ulboxes{
@@ -78,6 +90,8 @@ export default {
             justify-content: space-between;
             li{
                 font-size: 16px;
+                font-family: Bold;
+                color: #FFFFFF;
             }
         }
     }
@@ -101,10 +115,13 @@ export default {
                 left: 13px;
                 top: 16px;
                 font-size: 21px;
+                color: #FFFFFF;
+                font-family: Bold;
             }
             .span2{
                 left: 15px;
                 top: 43px;
+                color: #FFFFFF;
                 font-size: 12px;
                 font-family: Medium;
             }
@@ -114,6 +131,85 @@ export default {
         height: 211px;
         margin-top: 8px;
         background-color: white;
+        position: relative;
+            p{
+                width: 186px;
+                height: 15px;
+                font-size: 16px;
+                color: #1F2020;
+                font-family: Bold;
+                position: absolute;
+                left: 18px;
+                top: 20px;
+            }
+            .span1{
+                font-size: 16px;
+                color: #9F9E9E;
+                font-family: Medium;
+                position: absolute;
+                left: 17px;
+                top: 47px;
+            }
+            .span2{
+                font-size: 12px;
+                color: #9F9E9E;
+                font-family: Medium;
+                position: absolute;
+                left: 16px;
+                top: 64px;
+            }
+            img{
+                width: 78px;
+                height: 103px;
+                position: absolute;
+                left: 251px;
+                top: 13px;
+            }
+            .price{
+                width: 58px;
+                height: 14px;
+                position: absolute;
+                left: 18px;
+                top: 93px;                
+                .priceRed{
+                    display: inline-block;
+                    width: 35px;
+                    font-size: 18px;
+                    color: #E7305E;
+                    font-family: Bold;
+                }
+                .spanPrice{
+                    position: absolute;
+                    right: 0;
+                    bottom: -11px;
+                    font-size: 10px;
+                    color: #9F9E9E;
+                    font-family: Medium;
+                }
+            }
+            .title{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 9px 7px;
+                position: absolute;
+                left: 17px;
+                top: 131px;
+                background-color: #FAF3E4;
+                .titleText{
+                    font-size: 13px;
+                    color: #A77423;
+                    font-family: Bold;
+                }
+            }
+            .span3{
+                font-size: 12px;
+                color: #302D2D;
+                font-family: Medium;
+                position: absolute;
+                left: 16px;
+                top: 174px;
+            }
         }
     }
     
