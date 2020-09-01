@@ -24,8 +24,14 @@ import {
     Calendar,
     Cell,
     Card,
-    Tag
+    Tag,
+    AddressEdit,
+    IndexBar,
+    IndexAnchor
 } from 'vant';
+Vue.use(IndexBar)
+Vue.use(IndexAnchor)
+Vue.use(AddressEdit) //删除
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
