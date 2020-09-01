@@ -4,11 +4,15 @@ import router from './router'
 import store from './store'
 
 import "amfe-flexible";
+import './assets/style/dailyReward.css';
 
-import { Button, Tabbar, TabbarItem } from 'vant';
+import { Button, Tabbar, TabbarItem,NavBar,Circle} from 'vant';
 Vue.use(Button);
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
+Vue.use(NavBar) //导航栏
+Vue.use(Circle) //环形进度条
+
 
 Vue.config.productionTip = false
 

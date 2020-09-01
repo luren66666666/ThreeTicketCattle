@@ -41,6 +41,11 @@ const routes = [{
                     import ('../components/home/HomeMine.vue'),
             },
         ]
+    },
+    {
+        path: '/dailyReward',
+        component: () =>
+        import ('../components/dailyReward/DailyReward.vue'),
     }
 ]
 
