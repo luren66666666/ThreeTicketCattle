@@ -106,6 +106,7 @@ export default {
                 left: 15px;
                 top: 43px;
                 font-size: 12px;
+                font-family: Medium;
             }
         }
         .boxesli{
