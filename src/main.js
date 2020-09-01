@@ -39,9 +39,9 @@ import {
     IndexBar,
     IndexAnchor
 } from 'vant';
-Vue.use(IndexBar)
-Vue.use(IndexAnchor)
-Vue.use(AddressEdit) //删除
+
+// import './assets/style/reset.scss'
+
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
@@ -56,12 +56,16 @@ Vue.use(Tabs) //Tab 标签页
 Vue.use(NavBar); //NavBar 导航栏
 Vue.use(DropdownMenu); //综合排序
 Vue.use(DropdownItem); //综合排序
-Vue.use(Calendar); //日期
-Vue.use(Cell); //日期
+Vue.use(Calendar); //Cell 单元格
+Vue.use(Cell); //Cell 单元格
 Vue.use(Card); //分类列表
 Vue.use(Tag); //分类列表
 Vue.use(VanImage); //图片头像
 Vue.use(CellGroup); //展示箭头
+Vue.use(IndexBar) //IndexBar 索引栏
+Vue.use(IndexAnchor) //IndexBar 索引栏
+Vue.use(AddressEdit) //AddressEdit 地址编辑
+
 
 Vue.config.productionTip = false
 
