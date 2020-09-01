@@ -76,6 +76,12 @@ const routes = [
         component: () =>
             import ('../components/recommend/Recommend.vue'),
     },
+    //购票,相当于详情页（导航跳转）
+    {
+        path: '/buyticket',
+        component: () =>
+            import ('../components/buyticket/BuyTicket.vue'),
+    },
     //404路由
     {
         path: '*',
