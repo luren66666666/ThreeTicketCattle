@@ -148,7 +148,5 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
-.van-tabs__nav{
 
-}
 </style>
