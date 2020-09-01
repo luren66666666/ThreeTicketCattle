@@ -5,11 +5,19 @@ import store from './store'
 
 import "amfe-flexible";
 
-import { Button, Tabbar, TabbarItem, Search } from 'vant';
+import { Button, Tabbar, TabbarItem, Search, Tab, Tabs, DropdownMenu, DropdownItem, Calendar, Cell, Card, Tag } from 'vant';
 Vue.use(Button);
 Vue.use(Search);
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
+Vue.use(Tab); //分类
+Vue.use(Tabs); //分类
+Vue.use(DropdownMenu); //综合排序
+Vue.use(DropdownItem); //综合排序
+Vue.use(Calendar); //日期
+Vue.use(Cell); //日期
+Vue.use(Card); //分类列表
+Vue.use(Tag); //分类列表
 
 Vue.config.productionTip = false
 
