@@ -65,12 +65,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1000;
     background-color: #efa383;
     .van-nav-bar{
         width: 100%;
@@ -105,7 +99,7 @@ export default {
     .boxesmodel{
         width: 344px;
         // background-color: white;
-        height: 500px;
+        // height: 500px;
         .imgboxesmodel{
             margin-top: 42px;
             width: 100%;
