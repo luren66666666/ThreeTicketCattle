@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-01 14:21:58
+ * @LastEditTime: 2020-09-01 21:14:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\main.js
@@ -13,6 +13,7 @@ import store from './store'
 
 import "./assets/style/font.scss"
 
+// import './assets/sass/reset.scss'
 import "amfe-flexible";
 import {
     Button,

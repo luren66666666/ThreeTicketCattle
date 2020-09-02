@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-01 19:53:21
+ * @LastEditTime: 2020-09-01 22:00:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -51,7 +51,7 @@
             </div>
             <div>
                 <img :src="img2" alt="">
-                <p>阿朵专访：曾经消失5年，再见...</p>
+                <p class="line-ellipsis">阿朵专访：曾经消失5年，再见阿朵专访：曾经消失5年，再见</p>
             </div>
         </div>
         <!-- 全部 -->
@@ -59,6 +59,36 @@
             <van-tabs v-model="active" sticky>
                 <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title" :to="value.to"></van-tab>
             </van-tabs>
+            <div class="quanbu-wrap">
+                <img :src="img" alt="" v-for="value in 10" :key="value" style="width:97px;height:59px">
+            </div>
+            <div class="user-wrap">
+                <div class="user">
+                    <img :src="img" alt="">
+                    <div>
+                        <p class="p1">努力努力再努力-vtG6s</p>
+                        <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
+                    </div> 
+                </div>
+               <p class="p3">十分期待哦！</p>
+            </div>
+            <div class="zan-wrap">
+                <p>2.3K 阅读</p>
+                <div class="zan">
+                    <div>
+                        <van-icon name="good-job-o" />
+                        <span>赞</span>
+                    </div>
+                     <div>
+                        <van-icon name="other-pay" />
+                        <span>回复</span>
+                    </div>
+                     <div>
+                        <van-icon name="fire-o" />
+                        <span>分享</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -123,12 +153,13 @@ export default {
 }
 </script>
 <style lang="scss">
+@import '@/assets/sass/reset.scss';
     .discover-wrap {
         position: fixed;
-        top: 44px;
+        top: 0;
         left: 0;
         right: 0;
-        bottom: 44px;
+        bottom: 0;
         background: #ddd;
         .van-nav-bar__placeholder{
             background: #fff;
@@ -148,7 +179,7 @@ export default {
             }
         }
        .van-nav-bar{
-            margin-top: 44px;
+            // margin-top: 44px;
             display: flex;
             justify-content:space-between;
         .van-icon{
@@ -213,12 +244,69 @@ export default {
                     height: 75px;
                 }
                 p{
-                    margin: 0;
                     font-size: 12px;
                     font-weight: bold;
-                    line-height: 12px;
+                    line-height: 24px;
                 }
             }
+        }
+        .quanbu-wrap{
+            height: 80px;
+            padding: 10px 0 0 14px;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: scroll;
+            background: #fff;
+            img{
+                margin-right: 4px;
+            }
+        }
+        .user-wrap{
+            padding-left: 14px;
+            height: 100px;
+            background: #fff;
+            .user{
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+            img{
+                width: 32px;
+                height: 32px;
+                margin-right: 10px;
+            }
+            p{
+                margin: 0;
+            }
+            .p1{
+                font-size: 13px;
+                font-weight: bold;
+                color: #1F2122;
+                line-height: 15px;
+            }
+            .p2{
+                font-size: 11px;
+                font-weight: 500;
+                color: #999999;
+            }
+            .p3{
+                font-size: 15px;
+                font-weight: 500;
+                color: #212527;
+            }
+        }
+        .zan-wrap{
+            background: #fff;
+            padding: 0 13px 10px;
+            display: flex;
+            justify-content: space-between;
+            p{
+                font-size: 11px;
+            }
+            // .zan{
+            //     w
+            // }
         }
     }
 </style>
