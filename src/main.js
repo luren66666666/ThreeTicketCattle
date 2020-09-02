@@ -35,7 +35,8 @@ import {
     Tag,
     Image as VanImage,
     CellGroup,
-    Circle
+    Circle,
+    Popup
 } from 'vant';
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
@@ -58,6 +59,7 @@ Vue.use(Tag); //分类列表
 Vue.use(VanImage); //图片头像
 Vue.use(CellGroup); //展示箭头
 Vue.use(Circle);//环形进度条
+Vue.use(Popup);// 弹出层
 
 Vue.config.productionTip = false
 

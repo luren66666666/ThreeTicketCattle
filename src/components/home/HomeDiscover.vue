@@ -37,7 +37,7 @@
                 <span>看拍客攻略</span>
                 <span><img src="" alt=""></span>
             </div>
-            <div @click="toDaily">
+            <div>
                 <span>每日奖励</span>
                 <span>100元未领取</span>
                 <span><img src="" alt=""></span>
@@ -119,9 +119,7 @@ export default {
         onClickLeft() {
             Toast('按钮');
         },
-        toDaily() {
-            this.$router.push('/dailyreward')
-        }
+        
   },
 }
 </script>
