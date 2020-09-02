@@ -156,6 +156,7 @@ export default {
 }
 </script>
 <style lang="scss">
+
     .discover-wrap {
         @import '@/assets/sass/reset.scss';
         position: fixed;

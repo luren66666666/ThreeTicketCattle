@@ -22,12 +22,7 @@ const routes = [
         path: '/home',
         redirect: '/home/recommend'
     },
-    //登录注册界面
-    {
-        path: '/login',
-        component: () =>
-            import ('../components/register/Register.vue')
-    },
+    //主页
     {
         path: '/home',
         component: () =>
@@ -112,6 +107,18 @@ const routes = [
         path: '/message',
         component: () =>
             import ('../components/message/Message.vue'),
+    },
+    //立即购票（导航跳转）
+    {
+        path: '/theticketimmediately',
+        component: () =>
+            import ('../components/theticketimmediately/TheTicketImmediately.vue'),
+    },
+    //圈圈俱乐部（导航跳转）
+    {
+        path: '/circleclub',
+        component: () =>
+            import ('../components/circleclub/CircleClub.vue'),
     },
     //404路由
     {
