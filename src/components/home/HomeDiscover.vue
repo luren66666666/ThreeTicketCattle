@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-01 22:00:54
+ * @LastEditTime: 2020-09-02 08:55:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -303,9 +303,7 @@ export default {
             p{
                 font-size: 11px;
             }
-            .zan{
-                w
-            }
+            
         }
     }
 </style>
