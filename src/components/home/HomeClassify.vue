@@ -33,12 +33,22 @@
                 title="商品标题"
                 thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
                 :key="index"
+                @click="sidebarChange(item.id)"
                 >
                 <template #tags>
                     <van-tag plain type="danger">标签</van-tag>
                     <van-tag plain type="danger">标签</van-tag>
                 </template>
+                <!-- <div>
+                 <ul>
+                    <li v-for="(item, index) in 后端接口数据列表" :key="index" class="van-hairline--surround">
+                    <img :src="item.imgUrl" alt="">
+                    <span>{{ item.title }}</span>
+                    </li>
+                </ul>
+                </div> -->
                 </van-card>
+                
     </div>
 </template>
 <script>
@@ -59,7 +69,7 @@ export default {
         { text: '综合排序', value: 0 },
         { text: '最新优先', value: 1 },
         { text: '低价优先', value: 2 },
-        { text: '好评优先', value: 2 },
+        { text: '好评优先', value: 3 },
       ],
         list:[
             {
@@ -120,6 +130,17 @@ export default {
       this.date = this.formatDate(date);
       console.log(this.date)
     },
+    //  sidebarChange(id) {
+    //   // console.log(this.sidebarList[index].id)
+    //   // console.log(id)
+    //   this.type = id
+    //   // 每次点击也要做请求
+    //   this.$store.dispatch('后端接口', {
+    //     type: this.type
+    //   })
+    // }  
+  },updated() {
+      
   },
 }
 </script>
