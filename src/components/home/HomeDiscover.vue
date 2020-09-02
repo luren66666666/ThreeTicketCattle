@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-01 22:00:54
+ * @LastEditTime: 2020-09-02 11:25:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -37,7 +37,7 @@
                 <span>看拍客攻略</span>
                 <span><img src="" alt=""></span>
             </div>
-            <div>
+            <div @click="toDailyReward">
                 <span>每日奖励</span>
                 <span>100元未领取</span>
                 <span><img src="" alt=""></span>
@@ -148,6 +148,9 @@ export default {
         },
         onClickLeft() {
             Toast('按钮');
+        },
+        toDailyReward() {
+            this.$router.push('/dailyreward');
         }
   },
 }
@@ -304,9 +307,19 @@ export default {
             p{
                 font-size: 11px;
             }
-            // .zan{
-            //     w
-            // }
+            .zan{
+                width: 186px;
+                height: 20px;
+                display: flex;
+                justify-content: space-between;
+                div{
+                    font-size: 15px;
+                    height: 20px;
+                    span{
+                        font-size: 10px;
+                    }
+                }
+            }
         }
     }
 </style>
