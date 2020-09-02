@@ -95,6 +95,24 @@ const routes = [
         component: () =>
             import ('../components/buyticket/BuyTicket.vue'),
     },
+    //密码登录（导航跳转）
+    {
+        path: '/register',
+        component: () =>
+            import ('../components/register/Register.vue'),
+    },
+    //手机号登录注册（导航跳转）
+    {
+        path: '/phoneregister',
+        component: () =>
+            import ('../components/phoneregister/PhoneRegister.vue'),
+    },
+    //消息（导航跳转）
+    {
+        path: '/message',
+        component: () =>
+            import ('../components/message/Message.vue'),
+    },
     //404路由
     {
         path: '*',
