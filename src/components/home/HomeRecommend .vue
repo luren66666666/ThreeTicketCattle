@@ -1,12 +1,17 @@
 <template>
-    <div class="index-center" @scroll="ScrollHeight">
-        <indexHeader :show="show"  />
-        <indexNav />
-        <indexBanner />
-        <indexCenter />
-        <indexList />
-        <CitySelection /> 
-    </div>
+     <div>
+        <div class="index-center" @scroll="ScrollHeight" v-if="contenShow" >
+            <indexHeader :show="show"  @massge="receiveChild"  />
+            <indexNav />
+            <indexBanner />
+            <indexCenter />
+            <indexList />
+        </div>
+        <CitySelection v-if="!contenShow"  @mssge="cccc" />
+     </div>
+     
+  
+    
 </template>
 <script>
 import indexHeader from '../index/Herder'
@@ -16,11 +21,14 @@ import indexCenter from '../index/Center'
 import indexList from '../index/List'
 import CitySelection from '../index/CitySelection'
 export default {
+    
     data(){
         return {
+        contenShow:true,
         show:{
         isSite:true,
-        isCalendar:false
+        isCalendar:false,
+        
         }
         }
     },
@@ -32,9 +40,15 @@ export default {
        indexList,
        CitySelection
     },
+    watch:{
+    
+    },
+
     
     mounted(){
+       
          window.addEventListener('scroll', this.ScrollHeight, true)
+      
     },
     methods:{
         ScrollHeight(){
@@ -48,11 +62,20 @@ export default {
              }
              
      
+        },
+        receiveChild(val){
+            this.contenShow=val
+             
+        },
+        cccc(val){
+        
+            this.contenShow=val
         }
     }
 }
 </script>
 <style lang="scss" >
+
 @mixin lt{
     margin-left: 6px;
     margin-top:10px;
@@ -64,6 +87,7 @@ li{
         box-sizing: content-box;
         padding:0 15px 0 15px;
         font-size: 12px;
+        // position: absolute;
             nav{
                 display: flex;
                 align-items:center;
@@ -78,7 +102,7 @@ li{
             }
         
         .banner{
-           
+            height: 106px;
             img{
             height: 106px;
             width: 345px;
@@ -136,7 +160,6 @@ li{
            }
        }
        .list{
-           height: 1000px;
            background:#FAF9F9;
            .van-tab__pane{
                display: flex;
