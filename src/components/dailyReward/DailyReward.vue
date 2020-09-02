@@ -219,6 +219,7 @@ export default {
 
 
 <style lang="scss" >
+@import '@/assets/style/dailyReward.scss';
     .daily-reward{
         position: fixed;
         top: 0;
@@ -233,9 +234,8 @@ export default {
         overflow: auto;
         .daily-reward-van-nav-bar__title{
             width: 100%;
-            margin-top: 44px;
             font-size: 16px;
-
+            margin-top: 10px;
         }
         .daily-reward_task{
             width: 100%;
@@ -269,7 +269,7 @@ export default {
             width: 317px;
             height: 3px;
             background: rgba($color: #fff, $alpha: .2);
-            margin-top: 62px;
+            margin-top: 79px;
             margin-left: 50%;
             transform: translateX(-50%);
             position: relative;
@@ -331,12 +331,7 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
-            overflow: hidden;
-            // position: absolute;
-            
-            // top: -6px;
-            // left: 50%;
-            // transform: translateX(-50%);
+            // overflow: hidden;
             .noodReward{
                 width: 331px;
                 height: 62px;
@@ -545,7 +540,6 @@ export default {
             width: 348px;
             height: 74px;
             margin-top: 22px;
-            margin-bottom: 44px;
             img{
                 width: 100%;
                 height: 100%;

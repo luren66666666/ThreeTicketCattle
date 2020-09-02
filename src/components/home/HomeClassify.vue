@@ -22,19 +22,6 @@
             @click="show = true" 
             close-on-click-overlay="true"
             />
-             <!-- <van-card
-                v-for="(item, index) in 10"
-                price="2.00"
-                desc="描述信息"
-                title="商品标题"
-                thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
-                :key="index"
-                >
-                <template #tags>
-                    <van-tag plain type="danger">标签</van-tag>
-                    <van-tag plain type="danger">标签</van-tag>
-                </template>
-                </van-card> -->
             <van-calendar v-model="show" @confirm="onConfirm" @select="aaa"/>
             </van-dropdown-item>
             </van-dropdown-menu>
@@ -63,7 +50,6 @@ export default {
         values:0,
         value:'',
         active: '1',
-        
         switch1: false,
         switch2: false,
         date: '',

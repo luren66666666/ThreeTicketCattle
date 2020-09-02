@@ -22,11 +22,7 @@ const routes = [
         path: '/home',
         redirect: '/home/recommend'
     },
-    //主页home路由
-    {
-        path: '/login',
-        component: () => import('../components/register/Register.vue')
-    },
+    //主页
     {
         path: '/home',
         component: () =>
@@ -76,6 +72,12 @@ const routes = [
         component: () =>
             import ('../components/dailyReward/DailyReward.vue'),
     },
+    //日历（导航跳转）
+    {
+        path: '/calendar',
+        component: () =>
+            import ('../components/calendar/Calendar.vue'),
+    },
     //演出详情（导航跳转）
     {
         path: '/showdetails',
@@ -93,6 +95,36 @@ const routes = [
         path: '/buyticket',
         component: () =>
             import ('../components/buyticket/BuyTicket.vue'),
+    },
+    //密码登录（导航跳转）
+    {
+        path: '/register',
+        component: () =>
+            import ('../components/register/Register.vue'),
+    },
+    //手机号登录注册（导航跳转）
+    {
+        path: '/phoneregister',
+        component: () =>
+            import ('../components/phoneregister/PhoneRegister.vue'),
+    },
+    //消息（导航跳转）
+    {
+        path: '/message',
+        component: () =>
+            import ('../components/message/Message.vue'),
+    },
+    //立即购票（导航跳转）
+    {
+        path: '/theticketimmediately',
+        component: () =>
+            import ('../components/theticketimmediately/TheTicketImmediately.vue'),
+    },
+    //圈圈俱乐部（导航跳转）
+    {
+        path: '/circleclub',
+        component: () =>
+            import ('../components/circleclub/CircleClub.vue'),
     },
     //404路由
     {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        密码登录
+        手机号登录注册
     </div>
 </template>
 <script>
@@ -8,6 +8,3 @@ export default {
     
 }
 </script>
-<style lang="scss">
-    
-</style>
