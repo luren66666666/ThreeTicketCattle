@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-02 11:25:26
+ * @LastEditTime: 2020-09-02 17:22:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -56,39 +56,49 @@
         </div>
         <!-- 全部 -->
         <div>
-            <van-tabs v-model="active" sticky>
-                <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title" :to="value.to"></van-tab>
-            </van-tabs>
-            <div class="quanbu-wrap">
-                <img :src="img" alt="" v-for="value in 10" :key="value" style="width:97px;height:59px">
-            </div>
-            <div class="user-wrap">
-                <div class="user">
-                    <img :src="img" alt="">
-                    <div>
-                        <p class="p1">努力努力再努力-vtG6s</p>
-                        <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
-                    </div> 
-                </div>
-               <p class="p3">十分期待哦！</p>
-            </div>
-            <div class="zan-wrap">
-                <p>2.3K 阅读</p>
-                <div class="zan">
-                    <div>
-                        <van-icon name="good-job-o" />
-                        <span>赞</span>
+            <van-tabs v-model="active" sticky offset-top=46>
+                <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title">
+                    <div v-show="index==0">
+                        <div class="quanbu-wrap">
+                            <img :src="img" alt="" v-for="value in 10" :key="value" style="width:97px;height:59px">
+                        </div>
+                        <div v-for="(value,index) in 10" :key="index" style="margin-bottom:9px">
+                            <div class="user-wrap">
+                                <div class="user">
+                                    <img :src="img" alt="">
+                                    <div>
+                                        <p class="p1">努力努力再努力-vtG6s</p>
+                                        <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
+                                    </div> 
+                                </div>
+                                <p class="p3">十分期待哦！</p>
+                            </div>
+                            <div class="zan-wrap">
+                                <p>2.3K 阅读</p>
+                                <div class="zan">
+                                    <div>
+                                        <van-icon name="good-job-o" />
+                                        <span>赞</span>
+                                    </div>
+                                    <div>
+                                        <van-icon name="other-pay" />
+                                        <span>回复</span>
+                                    </div>
+                                    <div>
+                                        <van-icon name="fire-o" />
+                                        <span>分享</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                     <div>
-                        <van-icon name="other-pay" />
-                        <span>回复</span>
-                    </div>
-                     <div>
-                        <van-icon name="fire-o" />
-                        <span>分享</span>
-                    </div>
-                </div>
-            </div>
+                    <div v-show="index==1">音乐</div>
+                    <div v-show="index==2">戏剧</div>
+                    <div v-show="index==3">展览</div>
+                    <div v-show="index==4">亲子</div>
+                    <div v-show="index==5">幕后花絮</div>
+                </van-tab>
+            </van-tabs> 
         </div>
     </div>
 </template>
@@ -116,27 +126,21 @@ export default {
             tabList:[
                 {
                     title:'全部',
-                    to:''
                 },
                 {
                     title:'音乐',
-                    to:''
                 },
                 {
                     title:'戏剧',
-                    to:''
                 },
                 {
                     title:'展览',
-                    to:''
                 },
                 {
                     title:'亲子',
-                    to:''
                 },
                 {
                     title:'幕后花絮',
-                    to:''
                 }
             ],
             isIndex: 0
@@ -159,13 +163,12 @@ export default {
 <style lang="scss">
 
     .discover-wrap {
-        @import '@/assets/sass/reset.scss';
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #ddd;
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        // bottom: 0;
+        background: #eee;
         .van-nav-bar__placeholder{
             background: #fff;
             .van-nav-bar__left{
@@ -306,6 +309,7 @@ export default {
             padding: 0 13px 10px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
             p{
                 font-size: 11px;
             }
@@ -316,9 +320,14 @@ export default {
                 justify-content: space-between;
                 div{
                     font-size: 15px;
+                    // width: 40px;
                     height: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     span{
                         font-size: 10px;
+                        margin-left: 5px;
                     }
                 }
             }

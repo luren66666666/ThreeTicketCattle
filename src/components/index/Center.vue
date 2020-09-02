@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-09-02 10:33:49
+ * @LastEditTime: 2020-09-02 17:48:48
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \票牛\ThreeTicketCattle\src\components\index\Center.vue
+-->
 <template>
   <div>
     <van-grid :border="false"  column-num=5>
@@ -7,7 +15,7 @@
          <div><img src="../../assets/index-img/组 5.png" alt=""></div>
          <div><img src="../../assets/index-img/组 6.png" alt=""></div>
      </div>
-       <div class="service-entry">
+       <div class="service-entry" @click="toServiceAssurance">
           <span>服务保障</span>
           <ul>
               <li>先看后付</li>
@@ -34,7 +42,11 @@ export default {
 
   mounted() {},
 
-  methods: {}
+  methods: {
+    toServiceAssurance() {
+      this.$router.push("/serviceassurance");
+    }
+  }
 };
 </script>
 <style lang='scss' scoped></style>
