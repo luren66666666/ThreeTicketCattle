@@ -42,7 +42,11 @@ import {
     Popup,
     Sticky,
     PullRefresh,
-    Empty
+    Empty,
+    Divider,
+    GoodsAction,
+    GoodsActionIcon,
+    GoodsActionButton
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -73,6 +77,14 @@ Vue.use(Popup); // 弹出层
 Vue.use(Sticky); //顶部吸附
 Vue.use(PullRefresh); //下拉刷新
 Vue.use(Empty); //空状态
+Vue.use(Divider) //分割线  显示文本
+Vue.use(GoodsAction) //GoodsAction 商品导航
+Vue.use(GoodsActionIcon) //GoodsAction 商品导航
+Vue.use(GoodsActionButton) //GoodsAction 商品导航
+    // import './assets/style/dailyReward.scss';
+
+
+
 
 new Vue({
     router,
