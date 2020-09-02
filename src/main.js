@@ -14,7 +14,7 @@ import store from './store'
 import "./assets/style/font.scss"
 
 // import './assets/sass/reset.scss'
-import './assets/sass/reset.scss'
+// import './assets/sass/reset.scss'
 import "amfe-flexible";
 import {
     Button,
