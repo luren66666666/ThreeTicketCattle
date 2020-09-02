@@ -9,10 +9,20 @@
                     width="51px"
                     height="51px"
                     :src="head"
+                    v-if="token"
+                />
+                <van-image
+                    round
+                    width="51px"
+                    height="51px"
+                    src="https://img.yzcdn.cn/vant/cat.jpeg"
+                    v-else
                 />
                 <div class="username">
-                    <p>权志龙</p>
-                    <span>新手</span>
+                    <p v-if="token">权志龙</p>
+                    <p v-else class="not-log">点击登录</p>
+                    <span v-if="token">新手</span>
+                    <span v-else class="log-happy">登录更精彩</span>
                 </div>
                 <div class="my-home">
                     个人主页
@@ -29,7 +39,11 @@
         </header>
 
         <!-- 订单栏 -->
-        <van-cell title="我的订单" is-link value="查看全部订单" />
+        <van-cell title="我的订单">
+            <template #right-icon>
+                <img src="../../assets/MineImg/形状 7@2x.png" alt="">
+            </template>
+        </van-cell>
         <van-grid :border="false" icon-size="20px">
             <van-grid-item :icon="order[0]" text="待付款" />
             <van-grid-item :icon="order[1]" text="代发货" />
@@ -74,10 +88,11 @@
 
         <!--列表信息单元格  -->
         <section v-for="(item,index) in megList" :key="index">
-            <van-cell 
-            :title="item.content" 
-            is-link 
-            />
+            <van-cell :title="item.content" >
+                <template #right-icon>
+                    <img src="../../assets/MineImg/形状 7@2x.png" alt="">
+                </template>
+            </van-cell>
         </section>
         
     </div>
@@ -151,9 +166,13 @@ export default {
                     content:'设置',
                     path:''
                 },
-            ]
+            ],
+            token:''
         }
-    }
+    },
+    mounted() {
+        this.token = localStorage.getItem('token')
+    },
 }
 </script>
 
@@ -162,6 +181,7 @@ export default {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: Medium;
     }
     .mine {
         width: 100%;
@@ -192,7 +212,7 @@ export default {
                 margin-left: 9px;
                 p {
                     font-size: 18px;
-                    font-weight: 700;
+                    font-family: Bold;
                 }
                 span {
                     width:55px;
@@ -202,6 +222,11 @@ export default {
                     text-align: center;
                     line-height: 16px;
                     font-size: 12px;
+                }
+                .log-happy {
+                    width: 70px;
+                    border: none;
+                     text-align: left;
                 }
             }
             .my-home {
@@ -251,10 +276,13 @@ export default {
             display: flex;
             align-items: center;
             padding: 0 13px 0 19px;
-           
+           img {
+               width: 8px;
+               height: 13px;
+           }
             .van-cell__title {
                 font-size: 15px;
-                font-weight: 700;
+                font-family: Bold;
             }
             .van-cell__value, .van-icon-arrow {
                 font-size: 13px;
@@ -339,7 +367,7 @@ export default {
             h3 {
                 height: 36px;
                 font-size: 15px;
-                font-weight: bold;
+                font-family: Bold;
                 line-height: 36px;
                 padding: 0 18px;
             }
@@ -366,7 +394,7 @@ export default {
                         color: #909191;
                         &:first-child {
                             font-size: 13px;
-                            font-weight: bold;
+                            font-family: Bold;
                             margin-bottom: 10px;
                             color: black;
                         }
@@ -378,6 +406,10 @@ export default {
         section {
             width: 100%;
             border-top: 1px solid #F7F7F7;
+            img {
+                width: 8px;
+                height: 12px;
+            }
             .van-cell--clickable {
                 padding: 0 18px;
             }
