@@ -40,7 +40,10 @@ import {
     AddressEdit,
     IndexBar,
     IndexAnchor,
-    Circle
+    Circle,
+    Field,
+    Checkbox,
+    CheckboxGroup
 } from 'vant';
 
 // import './assets/style/reset.scss'
@@ -69,6 +72,9 @@ Vue.use(AddressEdit) //AddressEdit 地址编辑
 Vue.use(IndexBar) //IndexBar 索引栏
 Vue.use(IndexAnchor) //IndexBar 索引栏
 Vue.use(Circle) //环形进度条
+Vue.use(Field) //输入框
+Vue.use(Checkbox) //复选框
+Vue.use(CheckboxGroup) //复选框
     // import './assets/style/dailyReward.scss';
 
 
