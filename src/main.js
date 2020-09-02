@@ -40,7 +40,11 @@ import {
     AddressEdit,
     IndexBar,
     IndexAnchor,
-    Circle
+    Circle,
+    Divider ,
+    GoodsAction,
+    GoodsActionIcon, 
+    GoodsActionButton
 } from 'vant';
 
 // import './assets/style/reset.scss'
@@ -69,6 +73,10 @@ Vue.use(AddressEdit) //AddressEdit 地址编辑
 Vue.use(IndexBar) //IndexBar 索引栏
 Vue.use(IndexAnchor) //IndexBar 索引栏
 Vue.use(Circle) //环形进度条
+Vue.use(Divider) //分割线  显示文本
+Vue.use(GoodsAction) //GoodsAction 商品导航
+Vue.use(GoodsActionIcon) //GoodsAction 商品导航
+Vue.use(GoodsActionButton) //GoodsAction 商品导航
     // import './assets/style/dailyReward.scss';
 
 

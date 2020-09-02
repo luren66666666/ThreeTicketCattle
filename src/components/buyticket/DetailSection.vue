@@ -1,70 +1,62 @@
 <template>
-    <div class="showdetails-container">
-        <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder>
-            <template #right>
-                <van-icon name="search" size="18" />
-            </template>
-        </van-nav-bar>
-         <div class="section-middle">
+    <div class="detail-section">
+        <div class="section-middle">
                 <div class="show-title">演出简介</div>
                 <h6 class="show-introduce">演出介绍</h6>
                 <div class="one">
-                    <p>温馨提示:为响应国家防疫要求，部分剧院实施交叉或隔排售票方式，
-                        故在疫情期间，平台将无法保障同- -订单3张及以内保证连座，给您带来的不便敬请原谅</p>
+                    <p v-for="(item,index) in oneInfo" :key="index">{{item}}</p>
                 </div>
                 
                 <div class="two">
-                    <p>“王闪火重要的事莫耽搁，我努力不闪火，集中精力搞说唱像爬山坡”。相对于其他在《中国新说唱》中表现优异，借节目余温迅速发专的rapper</p>
+                    <p v-for="(item,index) in twoInfo" :key="index">{{item}}</p>
                 </div>
-                <div class="show-img">
-                    <img src="../../assets/票牛-购票_slices/images/show_03.jpg" alt="">
+                <div class="show-img" v-if="!showmore">
+                    <img src="../../assets/票牛-购票_slices/图层 1.png" alt="">
                 </div>
-                <div class="getmore">展开更多</div>
+                <div class="show-img show-img2" v-if="showmore">
+                    <img src="../../assets/票牛-购票_slices/图片 拷贝.png" alt="">
+                </div>
+                <div class="getmore" @click="showMoreInfo" v-if="!showmore">展开更多</div>
+                <div class="two" v-if="showmore">
+                    <p v-for="(item,index) in twoInfo" :key="index">{{item}}</p>
+                </div>
             </div>
-        <IconList />
-        <ToBuy :tit="tit" />
+            <IconList />
     </div>
 </template>
+
 <script>
-import IconList from '../buyticket/IconList';
-import ToBuy from '../buyticket/ToBuy';
+import IconList from './IconList';
 export default {
     data() {
         return {
-            tit:'这就购票'
+            oneInfo:['猝不及防的2020，是不是已经让你憋了太久?',
+                '期待撒欢的小心思，是不是已经蠢蠢欲动?',
+                '别着急，久违的嗨唱现场，又双聂發要来了!'
+            ],
+            twoInfo:[
+                '中国五大音乐节之一一氧气音 乐节即将线下奔现!',
+                '8.22磐安氧气山水音乐节',
+                '-个盛夏周末，-次山水旅行,- -场音乐狂欢'
+            ],
+            showmore:false,
+           
         }
     },
-    components:{
-        IconList,
-        ToBuy
-    },
-    methods: {
+     methods: {
         showMoreInfo(){
             this.showmore = !this.showmore;
         }
     },
+    components:{
+        IconList
+    }
 }
 </script>
+
 <style lang="scss">
-    .showdetails-container{
-         .van-nav-bar{
-            height: 44px;
-            background: #fff;
-            .van-icon-arrow-left{
-                width: 12px;
-                height: 19px;
-                color: #000;
-            }
-            .van-nav-bar__title{
-                font-size: 15px;
-            }
-            .van-icon-search{
-                width: 15px;
-                height: 16px;
-                color: #000000;
-            }
-        }
-            .section-middle{
+    .detail-section{
+           .section-middle{
                background: #fff;
                .show-title{
                     height: 28px;
@@ -89,16 +81,15 @@ export default {
                p{
                    box-sizing: border-box;
                    padding: 0;
+                   text-align: center;
                     font-size: 12px;
-                    box-sizing: border-box;
-                    padding: 0 14px;
                     font-family: Medium;
                     font-weight: 500;
                     color: #666666;
                     line-height: 17px;
                }
                .one{
-                    margin-bottom: 26px;
+                    margin-bottom: 46px;
                 }
                 .two{
                     box-sizing: border-box;
@@ -113,6 +104,11 @@ export default {
                         width: 100%;
                         height: 100%;
                     }
+                }
+                .show-img2{
+                    height: 348px;
+                    border-radius: 5px;
+                    overflow: hidden;
                 }
                 .getmore{
                     height: 40px;
@@ -135,7 +131,6 @@ export default {
                     }
                 }
            }
-        
-       
+           
     }
 </style>

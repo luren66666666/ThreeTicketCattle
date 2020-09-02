@@ -1,22 +1,29 @@
 <template>
     <div class="buyticket-container">
-        <div class="background-img">
-           
+        <div class="background-img"></div>
+        <div class="top-title1" v-if="showColor">
+            <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder>
+                <template #right>
+                    <van-icon name="search" size="18" />
+                </template>
+            </van-nav-bar>
         </div>
-        <van-nav-bar title="" left-text="" left-arrow>
-            <template #right>
-                <van-icon name="search" size="18" />
-            </template>
-        </van-nav-bar>
+        <div class="top-title2" v-else>
+            <van-nav-bar title="" left-text="" left-arrow fixed placeholder>
+                <template #right>
+                    <van-icon name="search" size="18" />
+                </template>
+            </van-nav-bar>
+        </div>
         <div class="details-info">
             <div class="info-content">
                 <div class="imgbox">
                     <img src="../../assets/票牛-购票_slices/图片 拷贝.png" alt="">
                 </div>
                 <div class="show-info">
-                    <div class="title">「痛仰/霍尊」中国·磐安2020氧 气山水音乐节</div>
-                    <p>暂无评分</p>
-                    <div class="pri"><span>408</span>元起</div>
+                    <div class="title">{{title}}</div>
+                    <p>{{pingfen}}</p>
+                    <div class="pri"><span>{{showInfo}}</span>元起</div>
                 </div>
             </div>
             <div class="info-btn">
@@ -39,66 +46,68 @@
                 <p>2020.08.22  16:30</p>
                 <h2 class="address"><span>金华磐安花溪风景区</span> <van-icon name="location-o"  /></h2>
                 <h3><span>购票须知</span> <van-icon name="arrow" /></h3>
-                <h3><span>平台保障</span><span>无票赔付</span><span>出票保真</span><span>配送保障</span><van-icon name="arrow" /></h3>
+                <h3><span v-for="(item,index) in baozhang" :key="index">{{item}}</span><van-icon name="arrow" /></h3>
                 <div class="address-box">
                     <div class="address-move">
-                        <div class="address-item ">
-                            <h4 class="active">张家口</h4>
-                            <p class="active">8.15</p>
+                        <div class="address-item " v-for="(item,index) in addInfo" :key="index" :class="{active:index===isActive}" @click="isActive=index">
+                            <h4>{{item.address}}</h4>
+                            <p>{{item.date}}</p>
                         </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                        <div class="address-item">
-                            <h4>张家口</h4>
-                            <p>8.15</p>
-                        </div>
-                    </div>
+                     </div>
                 </div>
                 
             </div>
 
-            <div class="section-bottom">
-                <div class="show-title">演出简介</div>
-                <h6 class="show-introduce">演出介绍</h6>
-                <p class="one">猝不及防的2020，是不是已经让你憋了太久?
-                     期待撒欢的小心思，是不是已经蠢蠢欲动 ?      
-                    别着急，久违的嗨唱现场，又双聂發要来了!</p>
-                
-                <div class="two">
-                    <p>中国五大音乐节之一一氧气音 乐节即将线下奔现!  </p>
-                    <p> 8.22磐安氧气山水音乐节</p>
-                    <p>-个盛夏周末，-次山水旅行,- -场音乐狂欢</p>
-                    <p></p>
-                </div>
-                <div class="show-img">
-                    <img src="../../assets/票牛-购票_slices/图层 1.png" alt="">
-                </div>
-            </div>
-            
+            <DetailSection />
+
         </section>
+        <ToBuy />
     </div>
 </template>
 <script>
+import DetailSection from './DetailSection';
+import ToBuy from './ToBuy';
 export default {
-    
+    data() {
+        return {
+            title:'「痛仰/霍尊」中国·磐安2020氧 气山水音乐节',
+            pingfen:'暂无评分',
+            showInfo:'408',
+            baozhang:['平台保障','无票赔付','出票保真','配送保障'],
+            addInfo:[
+                {
+                    address:'张家口',
+                    date:'8.15'
+                },
+                {
+                    address:'张家口',
+                    date:'8.15'
+                }
+            ],
+            isActive:0,
+            showColor:false
+        }
+    },
+    components:{
+        DetailSection,
+        ToBuy
+    },
+   mounted() {
+      window.addEventListener('scroll',this.scrollHandle)
+   },
+    destroyed(){
+        window.removeEventListener('scroll',this.scrollHandle);
+    },
+     methods:{
+        scrollHandle(){
+           let scroll = document.documentElement.scrollTop||document.body.scrollTop;
+            if(scroll>=50){
+                this.showColor = true;
+            }else {
+                this.showColor = false;
+            }
+         } 
+     }
 }
 </script>
 
@@ -127,7 +136,7 @@ export default {
         }
         .van-nav-bar{
             height: 44px;
-            background: transparent;
+            background: rgba(255,255,255,.95);
             .van-icon-arrow-left{
                 width: 12px;
                 height: 19px;
@@ -142,6 +151,11 @@ export default {
                 color: #000000;
             }
         }
+        .top-title2{
+            .van-nav-bar{
+                background: transparent;
+            }
+        }
         .details-info{
             width: 100%;
             height: 180px;
@@ -152,10 +166,10 @@ export default {
                 .imgbox{
                     width: 88px;
                     height: 116px;
-                img{
+                    img{
                         width: 100%;
                         height: 100%;
-                }
+                    }
                 }
                 .show-info{
                     width: 230px;
@@ -166,11 +180,13 @@ export default {
                         height: 38px;
                         font-size: 16px;
                         font-weight: bold;
+                        font-family: Bold;
                         color: #FFFFFF;
                     }
                     p{
                         height: 12px;
                         font-size: 12px;
+                        font-family: Medium;
                         font-weight: 500;
                         color: #D2D2D2;
                         margin: 20px 0;
@@ -178,7 +194,7 @@ export default {
                     .pri{
                         height: 17px;
                         font-size: 12px;
-                        font-family: PingFang SC;
+                        font-family: Bold;
                         font-weight: bold;
                         color: #FFFFFF;
                         line-height: 23px;
@@ -211,7 +227,7 @@ export default {
                 }
                 em{
                     font-size: 12px;
-                    font-family: PingFang SC;
+                    font-family: Medium;
                     font-weight: 500;
                     color: #FFFFFF;
                     margin-left: 5px;
@@ -226,14 +242,17 @@ export default {
             background: #f3f3f3;
            .section-top{
                background: #fff;
+               margin-bottom: 10px;
                 p{
                 height: 30px;
                 font-size: 12px;
                 margin: 10px 0;
+                font-family: Medium;
                 line-height: 30px;
                 padding-left: 14px;
             }
             .van-cell--clickable{ 
+                font-family: Medium;
                 font-size: 14px;
                 font-weight: 500;
                 color: #232323;
@@ -243,6 +262,7 @@ export default {
                 width: 100%;
                 padding-left: 14px;
                 height: 44px;
+                font-family: Medium;
                 box-sizing: border-box;
                 border-bottom: 1px solid #F3F3F3;
                 font-size: 14px;
@@ -272,6 +292,7 @@ export default {
                 box-sizing: border-box;
                 font-size: 14px;
                 font-weight: 500;
+                font-family: Medium;
                 border-bottom: 1px solid #F3F3F3;
                 .van-icon{
                     width: 13px;
@@ -289,7 +310,7 @@ export default {
                     height: 95px;
                     padding-left: 14px;
                     display: inline-flex;
-                    justify-content: start;
+                    justify-content: flex-start;
                     align-items: center;
                     .address-item{
                         width: 57px;
@@ -298,83 +319,39 @@ export default {
                         border-radius: 2px;
                         margin-right: 14px;
                         text-align: center;
-                        padding: 10px;
+                        box-sizing: border-box;
+                        padding: 5px;
+                        color: #6C6C6C;
                         h4{       
                             font-size: 13px;
-                            // font-family: PingFang SC;
+                            font-family: Medium;
                             font-weight: 500;
-                            color: #6C6C6C;
                             line-height: 23px;
                         }
                         p{   
                             font-size: 12px;
-                            // font-family: PingFang SC;
+                            font-family: Medium;
                             font-weight: 500;
-                            color: #969696;
                             line-height: 12px;
                             padding: 0;
+                            margin: 0;
                         }
                     }
                     .active{
                         color: #ff245f!important;
                     }
-                }
-               
-                
+                }    
             }
            }
-           .section-bottom{
-               background: #fff;
-               margin-top: 9px;
-               .show-title{
-                    height: 28px;
-                    font-size: 14px;
-                    // font-family: PingFang SC;
-                    font-weight: bold;
-                    color: #333333;
-                    line-height: 28px;
-                    box-sizing: border-box;
-                    padding: 14px 0 14px 14px; 
-               }
-               .show-introduce{  
-                    height: 12px;
-                    font-size: 12px;
-                    text-align: center;
-                    margin: 15px 0;
-                    // font-family: PingFang SC;
-                    font-weight: bold;
-                    color: #3C4460;
-                    line-height: 12px;
-               }
-               p{
-                   text-align: center;
-                    font-size: 12px;
-                    // font-family: PingFang SC;
-                    font-weight: 500;
-                    color: #666666;
-                    line-height: 17px;
-               }
-               .one{
-                    margin-left: 69px;
-                    width: 239px;
-                    height: 46px;
-                    margin-bottom: 46px;
-                }
-                .two{
-                    box-sizing: border-box;
-                    padding-bottom: 20px;
-                }
-                .show-img{
-                    width: 349px;
-                    height: 211px;
-                    margin-left: 14px;
-                    img{
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-           }
-           
+        
+        }
+        .van-button{
+            border-radius: 0;
+            font-size: 14px;
+            // font-family: PingFang SC;
+            font-weight: 500;
+            color: #FFFFFF;
+            line-height: 40px;
         }
     }
 </style>
