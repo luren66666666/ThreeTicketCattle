@@ -1,6 +1,6 @@
 <template>
     <div>
-        登录注册
+        密码登录
     </div>
 </template>
 <script>

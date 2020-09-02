@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-08-31 20:00:24
+ * @LastEditTime: 2020-09-01 14:34:24
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \票牛\ThreeTicketCattle\src\router\index.js
+ */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -14,7 +22,12 @@ const routes = [
         path: '/home',
         redirect: '/home/recommend'
     },
-    //主页home路由
+    //登录注册界面
+    {
+        path: '/login',
+        component: () =>
+            import ('../components/register/Register.vue')
+    },
     {
         path: '/home',
         component: () =>
@@ -75,6 +88,30 @@ const routes = [
         path: '/recommend',
         component: () =>
             import ('../components/recommend/Recommend.vue'),
+    },
+    //购票,相当于详情页（导航跳转）
+    {
+        path: '/buyticket',
+        component: () =>
+            import ('../components/buyticket/BuyTicket.vue'),
+    },
+    //密码登录（导航跳转）
+    {
+        path: '/register',
+        component: () =>
+            import ('../components/register/Register.vue'),
+    },
+    //手机号登录注册（导航跳转）
+    {
+        path: '/phoneregister',
+        component: () =>
+            import ('../components/phoneregister/PhoneRegister.vue'),
+    },
+    //消息（导航跳转）
+    {
+        path: '/message',
+        component: () =>
+            import ('../components/message/Message.vue'),
     },
     //404路由
     {

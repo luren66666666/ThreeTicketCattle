@@ -1,12 +1,8 @@
 <template>
-    <div>
+    <div class="Bottom-TAB-bar">
         <router-view></router-view>
-        <van-tabbar v-model="active">
-            <van-tabbar-item icon="home-o" to="/home/recommend">标签</van-tabbar-item>
-            <van-tabbar-item icon="search" to="/home/classify">分类</van-tabbar-item>
-            <van-tabbar-item icon="friends-o" to="/home/discover">发现</van-tabbar-item>
-            <van-tabbar-item icon="setting-o" to="/home/information">消息</van-tabbar-item>
-            <van-tabbar-item icon="home-o" to="/home/mine">我的</van-tabbar-item>
+        <van-tabbar v-model="active" active-color="red" inactive-color="#000" route fixed :placeholder="true" >
+            <van-tabbar-item :icon="value.icon" :to="value.to" v-for="(value,index) in vanTabberArr" :key="index">{{value.title}}</van-tabbar-item>
         </van-tabbar>
     </div>
 </template>
@@ -14,7 +10,32 @@
 export default {
     data(){
         return {
-            active:0
+            active:0,
+            vanTabberArr:[{
+                to:'/home/recommend',
+                title:'推荐',
+                icon:'wap-home-o'
+            },
+            {
+                to:'/home/classify',
+                title:'分类',
+                icon:'comment-o'
+            },
+            {
+                to:'/home/discover',
+                title:'发现',
+                icon:'aim'
+            },
+            {
+                to:'/home/information',
+                title:'消息',
+                icon:'chat-o'
+            },
+            {
+                to:'/home/mine',
+                title:'我的',
+                icon:'contact'
+            }]
         }
     },
     components:{
@@ -22,6 +43,13 @@ export default {
     }
 }
 </script>
-<style lang="scss" scoped>
-
+<style lang="scss" >
+.Bottom-TAB-bar{
+.van-icon-wap-home-o{
+    font-size: 21px;
+}
+.van-tabbar-item__text{
+    font-size: 10px;
+}
+}
 </style>
