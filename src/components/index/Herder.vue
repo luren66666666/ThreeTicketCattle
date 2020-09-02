@@ -27,15 +27,17 @@ export default {
     data(){
         return {
               value:'',//搜索框的value
+              contenShow:true  //首页切换地址
           
         }
     },
     mounted(){
-        this.CitySelectionChange()
+        
     },
     methods:{
         CitySelectionChange(){
-            console.log()
+            this.contenShow=false    
+             this.$emit('massge',this.contenShow)
         }
     }
    
@@ -82,6 +84,7 @@ export default {
                 }
             }
             .calendar{
+              
                 height: 32px;
                 display: flex;
                 justify-content: center;

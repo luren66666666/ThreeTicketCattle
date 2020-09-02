@@ -7,9 +7,9 @@
  * @FilePath: \票牛\ThreeTicketCattle\src\components\index\Center.vue
 -->
 <template>
-  <div>
+  <div class="center-warp">
     <van-grid :border="false"  column-num=5>
-        <van-grid-item icon="photo-o" text="文字" v-for="(item,index) in 10" :key="index" />
+        <van-grid-item   v-for="(item,index) in gridList" :text="item.text"  :icon="item.icon" :key="index" />
     </van-grid>
     <div class="operating-position">
          <div><img src="../../assets/index-img/组 5.png" alt=""></div>
@@ -19,9 +19,9 @@
           <span>服务保障</span>
           <ul>
               <li>先看后付</li>
-              <li>先看后付</li>
-              <li>先看后付</li>
-              <li>先看后付</li>
+              <li>无票赔付</li>
+              <li>出票保真</li>
+              <li>配送保障</li>
           </ul>
       </div>
       <div class="middle-banner">
@@ -33,7 +33,49 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      gridList:[
+        {
+          icon:"smile-o",
+          text:"演唱会"
+        },
+         {
+          icon:"smile-o",
+          text:"旅游玩乐"
+        },
+        {
+          icon:"smile-o",
+          text:"话剧歌剧"
+        }, {
+          icon:"smile-o",
+          text:"休闲展示"
+        },
+         {
+          icon:"smile-o",
+          text:"体育赛事"
+        },
+         {
+          icon:"smile-o",
+          text:"音乐会"
+        },
+         {
+          icon:"smile-o",
+          text:"儿童亲子"
+        },
+         {
+          icon:"smile-o",
+          text:"戏曲综艺"
+        },
+         {
+          icon:"smile-o",
+          text:"舞蹈芭蕾"
+        },
+         {
+          icon:"smile-o",
+          text:"潮生活"
+        }
+      ]
+    };
   },
 
   components: {},
@@ -49,4 +91,10 @@ export default {
   }
 };
 </script>
-<style lang='scss' scoped></style>
+<style lang='scss'>
+
+.center-warp{
+  height: 384px;
+  
+}
+</style>

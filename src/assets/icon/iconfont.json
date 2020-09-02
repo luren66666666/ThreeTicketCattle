@@ -1,0 +1,107 @@
+{
+  "id": "2043062",
+  "name": "票牛",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "9664798",
+      "name": "分 享",
+      "font_class": "fenxiang",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "84345",
+      "name": "亭子",
+      "font_class": "tingzi",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "674663",
+      "name": "生活",
+      "font_class": "shenghuo",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "1073622",
+      "name": "微笑",
+      "font_class": "ss",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "1422316",
+      "name": "展览",
+      "font_class": "zhanlan",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "2248916",
+      "name": "icc_体育赛事",
+      "font_class": "tiyusaishi",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5202476",
+      "name": "鸭子",
+      "font_class": "yazi",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "7369577",
+      "name": "舞蹈",
+      "font_class": "wudao",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "9620166",
+      "name": "音乐会",
+      "font_class": "yinlehui",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11296934",
+      "name": "演唱会",
+      "font_class": "yanchanghui",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "12409484",
+      "name": "古风物件，中国风，扇子，折扇",
+      "font_class": "gufengwujianzhongguofengshanzizheshan",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "13666227",
+      "name": "旅游 沙滩 雨伞 旅行 线性",
+      "font_class": "lvyoushatanyusanlvhangxianxing",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "15181735",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "15991451",
+      "name": "日 历",
+      "font_class": "rili",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    }
+  ]
+}
