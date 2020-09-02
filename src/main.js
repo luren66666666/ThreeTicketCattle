@@ -37,7 +37,8 @@ import {
     CellGroup,
     AddressEdit,
     IndexBar,
-    IndexAnchor
+    IndexAnchor,
+    Circle
 } from 'vant';
 
 // import './assets/style/reset.scss'
@@ -62,12 +63,14 @@ Vue.use(Card); //分类列表
 Vue.use(Tag); //分类列表
 Vue.use(VanImage); //图片头像
 Vue.use(CellGroup); //展示箭头
+Vue.use(AddressEdit) //AddressEdit 地址编辑
 Vue.use(IndexBar) //IndexBar 索引栏
 Vue.use(IndexAnchor) //IndexBar 索引栏
-Vue.use(AddressEdit) //AddressEdit 地址编辑
+Vue.use(Circle) //环形进度条
+    // import './assets/style/dailyReward.scss';
 
 
-Vue.config.productionTip = false
+
 
 new Vue({
     router,
