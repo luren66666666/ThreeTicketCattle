@@ -32,7 +32,7 @@
                 <span>现场体验官</span>
                 <span><img src="" alt=""></span>
             </div>
-            <div>
+            <div >
                 <span>拍客现场</span>
                 <span>看拍客攻略</span>
                 <span><img src="" alt=""></span>
@@ -152,6 +152,7 @@ export default {
         toDailyReward() {
             this.$router.push('/dailyreward');
         }
+        
   },
 }
 </script>
