@@ -40,7 +40,8 @@ import {
     AddressEdit,
     IndexBar,
     IndexAnchor,
-    Circle
+    Circle,
+    Popup
 } from 'vant';
 
 // import './assets/style/reset.scss'
@@ -69,9 +70,7 @@ Vue.use(AddressEdit) //AddressEdit 地址编辑
 Vue.use(IndexBar) //IndexBar 索引栏
 Vue.use(IndexAnchor) //IndexBar 索引栏
 Vue.use(Circle) //环形进度条
-    // import './assets/style/dailyReward.scss';
-
-
+Vue.use(Popup); // 弹出层
 
 
 new Vue({
