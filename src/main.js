@@ -13,8 +13,6 @@ import store from './store'
 
 import "./assets/style/font.scss"
 
-// import './assets/sass/reset.scss'
-// import './assets/sass/reset.scss'
 import "amfe-flexible";
 import {
     Button,
@@ -47,8 +45,6 @@ import {
     Empty
 } from 'vant';
 
-// import './assets/style/reset.scss'
-
 Vue.use(Button); //Button 按钮
 Vue.use(Tabbar); //Tabbar 标签栏
 Vue.use(TabbarItem); //Tabbar 标签栏
@@ -63,7 +59,7 @@ Vue.use(Tabs) //Tab 标签页
 Vue.use(NavBar); //NavBar 导航栏
 Vue.use(DropdownMenu); //综合排序
 Vue.use(DropdownItem); //综合排序
-Vue.use(Calendar); //Cell 单元格
+Vue.use(Calendar); //Cell 日历
 Vue.use(Cell); //Cell 单元格
 Vue.use(Card); //分类列表
 Vue.use(Tag); //分类列表
@@ -77,10 +73,6 @@ Vue.use(Popup); // 弹出层
 Vue.use(Sticky); //顶部吸附
 Vue.use(PullRefresh); //下拉刷新
 Vue.use(Empty); //空状态
-// import './assets/style/dailyReward.scss';
-
-
-
 
 new Vue({
     router,

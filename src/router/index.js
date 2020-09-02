@@ -72,6 +72,12 @@ const routes = [
         component: () =>
             import ('../components/dailyReward/DailyReward.vue'),
     },
+    //日历（导航跳转）
+    {
+        path: '/calendar',
+        component: () =>
+            import ('../components/calendar/Calendar.vue'),
+    },
     //演出详情（导航跳转）
     {
         path: '/showdetails',
