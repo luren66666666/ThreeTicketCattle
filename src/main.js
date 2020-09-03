@@ -55,7 +55,10 @@ import {
     Toast,
     CouponCell,
     CouponList,
-    Form
+    Form,
+    NoticeBar,
+    RadioGroup,
+    Radio
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -98,6 +101,10 @@ Vue.use(Toast) //轻提示
 Vue.use(CouponCell); //优惠券
 Vue.use(CouponList); //优惠券
 Vue.use(Form); //表单
+Vue.use(NoticeBar) //通知栏
+Vue.use(RadioGroup) //单选框
+Vue.use(Radio) //单选框
+
 // import './assets/style/dailyReward.scss';
 
 
