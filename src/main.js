@@ -44,7 +44,8 @@ import {
     Popup,
     Sticky,
     PullRefresh,
-    Empty
+    Empty,
+    ActionSheet
 } from 'vant';
 
 // import './assets/style/reset.scss'
@@ -77,6 +78,7 @@ Vue.use(Popup); // 弹出层
 Vue.use(Sticky); //顶部吸附
 Vue.use(PullRefresh); //下拉刷新
 Vue.use(Empty); //空状态
+Vue.use(ActionSheet);//动作面板弹出
 // import './assets/style/dailyReward.scss';
 
 
