@@ -32,8 +32,11 @@
                 </div>
                 <span class="span6">已经到底了</span>
                 <div class="footdiv">
-                    <span>选择数量</span>
-                    <span>3张以内保证连坐</span>
+                    <span class="span1">选择数量</span>
+                    <span class="span2">3张以内保证连坐</span>
+                    <img src="../../assets/images/票牛-立即购票/矩形 8.png" alt="" class="img1">
+                    <span class="span3">1</span>
+                    <img src="../../assets/images/票牛-立即购票/矩形 8 拷贝 2.png" alt="" class="img2">
                 </div>
             </van-popup>
         </div>
@@ -91,20 +94,24 @@ export default {
         // background-color: white;
         .van-nav-bar{
             height: 36px;
+            position: relative;
             // border-bottom: 1px solid #A0A0A0;
             .van-nav-bar__left{
+                margin-left: 12px;
                 .van-icon{
                     font-size: 23px;
                     color: black;
                 }
             }
             .van-nav-bar__title{
+                margin-left: 155px;
                 font-size: 17px;
                 font-family: Medium;
                 color: #040000;
                 font-weight: 600;
             }
             .van-nav-bar__right{
+                margin-right: 8px;
                 .van-icon{
                     font-size: 20px;
                     color: black;
@@ -234,6 +241,45 @@ export default {
                     height: 45px;
                     position: absolute;
                     bottom: 43px;
+                    .span1{
+                        position: absolute;
+                        top: 10px;
+                        left: 11px;
+                        font-size: 13px;
+                        font-family: Medium;
+                        color: #242424;
+                    }
+                    .span2{
+                        position: absolute;
+                        top: 27px;
+                        left: 11px;
+                        font-size: 9px;
+                        font-family: Regular;
+                        color: #919191;
+                    }
+                    .img1{
+                        width: 25px;
+                        height: 25px;
+                        position: absolute;
+                        left: 275px;
+                        top: 10px;
+                        opacity: 0.5;
+                    }
+                    .span3{
+                        position: absolute;
+                        top: 17px;
+                        left: 317px;
+                        font-size: 13px;
+                        font-family: Medium;
+                        color: #242424;
+                    }
+                    .img2{
+                        width: 25px;
+                        height: 25px;
+                        position: absolute;
+                        left: 339px;
+                        top: 10px;
+                    }  
                 }
             }
         }
