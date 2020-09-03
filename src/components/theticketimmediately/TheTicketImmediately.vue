@@ -32,7 +32,8 @@
                 </div>
                 <span class="span6">已经到底了</span>
                 <div class="footdiv">
-
+                    <span>选择数量</span>
+                    <span>3张以内保证连坐</span>
                 </div>
             </van-popup>
         </div>
@@ -202,24 +203,32 @@ export default {
                     }
                     .span3{
                         position: absolute;
-                        top: 57px;
-                        left: 34px;
+                        top: 10px;
+                        left: 15px;
                         font-size: 13px;
                         font-family: Medium;
                         color: #FF2661;
                     }
                     .span4{
-                        font-size: 11px;
+                        position: absolute;
+                        top: 10.5px;
+                        left: 74px;
+                        font-size: 12px;
                         font-family: Regular;
-                        color: #FFFFFF;
+                        color: #919292;
                         // .span5{
 
                         // }
                     }
                 }
-                // .span6{
-
-                // }
+                .span6{
+                    position: absolute;
+                    top: 102px;
+                    left: 159px;
+                    font-size: 12px;
+                    font-family: Regular;
+                    color: #7E7E7E;
+                }
                 .footdiv{
                     width: 100%;
                     height: 45px;
