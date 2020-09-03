@@ -9,7 +9,7 @@
 <template>
   <div class="center-warp">
     <van-grid :border="false"  column-num=5>
-        <van-grid-item   v-for="(item,index) in gridList" :text="item.text"  :icon="item.icon" :key="index" />
+        <van-grid-item   v-for="(item,index) in gridList" :text="item.text"  :class="item.icon" :key="index" />
     </van-grid>
     <div class="operating-position">
          <div><img src="../../assets/index-img/组 5.png" alt=""></div>
@@ -36,42 +36,42 @@ export default {
     return {
       gridList:[
         {
-          icon:"smile-o",
+          icon:"iconfont icon-yanchanghui",
           text:"演唱会"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-lvyoushatanyusanlvhangxianxing",
           text:"旅游玩乐"
         },
         {
-          icon:"smile-o",
+          icon:"iconfont icon-ss",
           text:"话剧歌剧"
         }, {
-          icon:"smile-o",
+          icon:"iconfont icon-zhanlan",
           text:"休闲展示"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-tiyusaishi",
           text:"体育赛事"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-yinlehui",
           text:"音乐会"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-yazi",
           text:"儿童亲子"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-gufengwujianzhongguofengshanzizheshan",
           text:"戏曲综艺"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-wudao",
           text:"舞蹈芭蕾"
         },
          {
-          icon:"smile-o",
+          icon:"iconfont icon-shenghuo",
           text:"潮生活"
         }
       ]
@@ -95,6 +95,21 @@ export default {
 
 .center-warp{
   height: 384px;
-  
+  .van-grid{
+    padding:15px 0;
+
+  }
+  .van-grid-item {
+    width: 40px;
+    height: 60px;
+  }
+  .iconfont{
+    width: 40px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+  }
 }
 </style>

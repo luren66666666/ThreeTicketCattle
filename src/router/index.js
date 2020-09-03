@@ -78,6 +78,12 @@ const routes = [
         component: () =>
             import ('../components/calendar/Calendar.vue'),
     },
+    //地址(导航跳转)
+    {
+        path: '/CitySelection',
+        component: () =>
+            import ('../components/index/CitySelection.vue'),
+    },
     //演出详情（导航跳转）
     {
         path: '/showdetails',

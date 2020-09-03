@@ -1,13 +1,13 @@
 <template>
      <div>
-        <div class="index-center" @scroll="ScrollHeight" v-if="contenShow" >
-            <indexHeader :show="show"  @massge="receiveChild"  />
+        <div class="index-center" @scroll="ScrollHeight"  >
+            <indexHeader :show="show"   />
             <indexNav />
             <indexBanner />
             <indexCenter />
             <indexList />
         </div>
-        <CitySelection v-if="!contenShow"  @mssge="cccc" />
+    
      </div>
      
   
@@ -24,7 +24,6 @@ export default {
     
     data(){
         return {
-        contenShow:true,
         show:{
         isSite:true,
         isCalendar:false,
@@ -63,10 +62,7 @@ export default {
              
      
         },
-        receiveChild(val){
-            this.contenShow=val
-             
-        },
+       
         cccc(val){
         
             this.contenShow=val
@@ -87,16 +83,16 @@ li{
         box-sizing: content-box;
         padding:0 15px 0 15px;
         font-size: 12px;
-        // position: absolute;
             nav{
-                display: flex;
-                align-items:center;
-                color:#666969;
+                padding-top: 32px;
                 height: 40px;
+                display: flex;
+                color:#666969;        
+                align-items:center;
                 .nav-list{
                     display: flex;
-                    justify-content: space-around;
                     width: 300px;
+                    justify-content: space-around;
                 }
                
             }
@@ -159,60 +155,6 @@ li{
                height: 100%;
            }
        }
-       .list{
-           background:#FAF9F9;
-           .van-tab__pane{
-               display: flex;
-               justify-content: space-between;
-               flex-wrap: wrap;
-           }
-           .list-conten{
-               .li-img{
-                   width: 173px;
-                   height: 255px;
-               }
-               margin-top:20px;
-               width: 168px;
-               height: 278px;
-               background:#fff;
-               .list-img{
-                   width: 100%;
-                   height: 173px;
-                   position:relative;
-                   span{
-                       color: #F0D68D;
-                       position:absolute;
-                       bottom:0px;
-                       transform:translateX(50%);
-                   }
-               }
-               img{
-                   position: absolute;
-                   width: 100%;
-                   height: 100%;
-               }
-               a{
-                   @include lt;
-                   display: block;
-                   width: 122px;
-                   color: #000;
-                   font-weight: 700;
-                   font-size: 14px;
-               }
-               .time{
-                   @include lt;
-                   color: #959495;
-               }
-               .price{
-                   @include lt;
-                   .price-num{
-                       font-size: 18px;
-                       color: #E72257;
-                        font-weight: 600;
-                   }
-               }
-           }
-          
-       }
+     
     }
 </style>

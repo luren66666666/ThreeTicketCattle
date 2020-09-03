@@ -2,7 +2,7 @@
     <div class="list">
             <van-tabs v-model="active"  swipeable sticky offset-top="32px">
                 <van-tab title="推荐" >
-                    <li class="list-conten">
+                     <li class="list-conten">
                         <div class="list-img">
                             <img src="../../assets/index-img/组 19.png" alt="">
                             <span>票牛口碑榜NO1</span>
@@ -13,11 +13,10 @@
                             <span class="price-num">8.4折</span>
                             <span>起</span>
                         </div>
- 
                     </li>
                     <li class="list-conten">
                         <div class="list-img">
-                            <img src="../../assets/index-img/组 19.png" alt="">
+                            <img src="../../assets/index-img/组 20.png" alt="">
                             <span>票牛口碑榜NO1</span>
                         </div>
                         <a>长安马自达氧气LIVE 音乐节</a>
@@ -30,6 +29,31 @@
                     </li>
                     <li class="list-conten">
                         <img src="../../assets/index-img/组 23.png" alt="" class="li-img">
+                    </li>
+                    <li class="list-conten">
+                        <div class="list-img">
+                            <img src="../../assets/index-img/组 21.png" alt="">
+                            <span>票牛口碑榜NO1</span>
+                        </div>
+                        <a>长安马自达氧气LIVE 音乐节</a>
+                        <div class="time">2020.08.25-08.31</div>
+                        <div class="price">
+                            <span class="price-num">8.4折</span>
+                            <span>起</span>
+                        </div>
+                    </li>
+                    <li class="list-conten">
+                        <div class="list-img">
+                            <img src="../../assets/index-img/组 24.png" alt="">
+                            <span>票牛口碑榜NO1</span>
+                        </div>
+                        <a>长安马自达氧气LIVE 音乐节</a>
+                        <div class="time">2020.08.25-08.31</div>
+                        <div class="price">
+                            <span class="price-num">8.4折</span>
+                            <span>起</span>
+                        </div>
+
                     </li>
                 </van-tab>
                 <van-tab title="大牌" class= "van-tab--active">
@@ -65,35 +89,12 @@ export default {
   data() {
     return {
          active:'',
-              areaList:{
-  province_list: {
-    110000: '北京市',
-    120000: '天津市'
-  },
-  city_list: {
-    110100: '北京市',
-    110200: '县',
-    120100: '天津市',
-    120200: '县'
-  },
-  county_list: {
-    110101: '东城区',
-    110102: '西城区',
-    110105: '朝阳区',
-    110106: '丰台区',
-    120101: '和平区',
-    120102: '河东区',
-    120103: '河西区',
-    120104: '南开区',
-    120105: '河北区',
-    // ....
-  }
-},
       searchResult: [],
+    
     };
   },
 
-  components: {},
+
 
   computed: {},
 
@@ -123,53 +124,117 @@ export default {
 };
 </script>
 <style lang='scss'>
+
+@mixin lt{
+    margin-left: 6px;
+    margin-top:10px;
+}
 @mixin list-top{
    margin-top:15px;
    width:375px;
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
-}
- .major{
-    @include list-top;
-   li{
-     width: 48%;
-     height: 200px;
-     background:url("https://img.piaoniu.com/poster/a3ae8f160ca8dcf513c22ff630f3a36fb99bad37.jpg?imageView2/2/w/220/h/164/format/jpg/q/60")no-repeat;
-     background-size:170px 200px;
-     margin-bottom:20px;
+      }   
+  
+   .major{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     @include list-top;
+      li{
+        width: 48%;
+        height: 200px;
+        background:url("https://img.piaoniu.com/poster/a3ae8f160ca8dcf513c22ff630f3a36fb99bad37.jpg?imageView2/2/w/220/h/164/format/jpg/q/60")no-repeat;
+        background-size:170px 200px;
+        margin-bottom:20px;
 
-   }
- }
- .collection{
-    @include list-top;
-    width: 100%;
-    li{
-      margin-bottom: 20px;
-    }
-    img{
-      width: 100%;
-    }
-    .collection-content{
-        display: flex;
-        padding:0 15px;
-        justify-content:space-between; 
-        background-color: #fff;
-      .content-title{
-        display: flex;
-        flex-direction: column;
-        .title-weight{
-          font-weight: 1000;
-
-        }
-
-      }  
-      .content-icon{
-          width: 100px;
-          height: 30px;
-          border-radius: 20px;
-          background-color:red;
       }
-  }
- }
+    }
+    .collection{
+        @include list-top;
+        width: 100%;
+        li{
+          margin-bottom: 20px;
+        }
+        img{
+          width: 100%;
+        }
+        .collection-content{
+            display: flex;
+            padding:0 15px;
+            justify-content:space-between; 
+            background-color: #fff;
+          .content-title{
+            display: flex;
+            flex-direction: column;
+            .title-weight{
+              font-weight: 1000;
+
+            }
+
+          }  
+          .content-icon{
+              width: 100px;
+              height: 30px;
+              border-radius: 20px;
+              background-color:red;
+          }
+      }
+    }
+   .list{
+ 
+      background:#FAF9F9;
+     .van-tab__pane{
+       display: flex;
+       justify-content: space-between;
+       flex-wrap: wrap;
+       position: relative;
+     } 
+    .list-conten{
+        height: 279px;
+        
+        .li-img{
+            width: 173px;
+            height: 255px;
+        }
+        margin-top:20px;
+        width: 168px;
+        background:#fff;
+        .list-img{
+            width: 100%;
+            height: 173px;
+            position:relative;
+            span{
+                color: #F0D68D;
+                position:absolute;
+                bottom:0px;
+                transform:translateX(50%);
+            }
+        }
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        a{
+            @include lt;
+            display: block;
+            width: 122px;
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .time{
+            @include lt;
+            color: #959495;
+        }
+        .price{
+            @include lt;
+            .price-num{
+                font-size: 18px;
+                color: #E72257;
+                font-weight: 600;
+            }
+        }
+    }
+          
+       }
 </style>

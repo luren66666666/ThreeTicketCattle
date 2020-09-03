@@ -1,16 +1,16 @@
 <template>
     <header>
         <transition name="slide-fade">
-              <span v-if="show.isSite" class="site" @click="CitySelectionChange">
+            <span v-if="show.isSite" class="site" @click="CitySelectionChange">
             <img src="../../assets/index-img/椭圆 2.png" alt="">
-            <strong>上海</strong>
+            <strong>{{citys}}</strong>
         </span>
         </transition>
       
         <div class="inp">
             <van-search v-model="value" placeholder="动物园"  shape="round" />
         </div>
-        <div class="calendar">
+        <div class="calendar" @click="jumpCalendar">
             <img src="../../assets/index-img/组 16 拷贝.png" alt="">
             <span v-if="show.isCalendar">演出日历</span>
         </div>
@@ -22,23 +22,32 @@
 export default {
     props:{
         show:Object,
-       
+        
     },
     data(){
         return {
               value:'',//搜索框的value
-              contenShow:true  //首页切换地址
+              contenShow:true , //首页切换地址
+              citys:''
           
         }
     },
     mounted(){
-        
+         this.citys=this.$store.state.city
     },
     methods:{
+       
         CitySelectionChange(){
-            this.contenShow=false    
-             this.$emit('massge',this.contenShow)
-        }
+          this.$store.commit('changecity',{    //点击改变vuex的city值
+              val:this.citys
+          })
+          this.$router.push('/CitySelection')  //点击切换到城市地址页面 
+        },
+       
+        jumpCalendar(){
+            this.$router.push('/calendar')    //点击跳转日历页面
+        },
+        
     }
    
 }
