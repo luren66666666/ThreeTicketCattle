@@ -1,6 +1,6 @@
 <template>
     <div>
-        消息
+        支付订单
     </div>
 </template>
 <script>

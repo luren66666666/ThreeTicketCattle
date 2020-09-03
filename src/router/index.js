@@ -108,12 +108,6 @@ const routes = [
         component: () =>
             import ('../components/phoneregister/PhoneRegister.vue'),
     },
-    //消息（导航跳转）
-    {
-        path: '/message',
-        component: () =>
-            import ('../components/message/Message.vue'),
-    },
     //立即购票（导航跳转）
     {
         path: '/theticketimmediately',
@@ -125,6 +119,30 @@ const routes = [
         path: '/circleclub',
         component: () =>
             import ('../components/circleclub/CircleClub.vue'),
+    },
+    //免费抽奖（导航跳转）
+    {
+        path: '/freeprizedraw',
+        component: () =>
+            import ('../components/freeprizedraw/FreePrizeDraw.vue'),
+    },
+    //订单详情（导航跳转）
+    {
+        path: '/lineitem',
+        component: () =>
+            import ('../components/lineitem/LineItem.vue'),
+    },
+    //确认订单（导航跳转）
+    {
+        path: '/confirmorder',
+        component: () =>
+            import ('../components/confirmorder/ConfirmOrder.vue'),
+    },
+    //支付订单（导航跳转）
+    {
+        path: '/payorder',
+        component: () =>
+            import ('../components/payorder/PayOrder.vue'),
     },
     //404路由
     {
