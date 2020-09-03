@@ -114,6 +114,12 @@ const routes = [
         component: () =>
             import ('../components/theticketimmediately/TheTicketImmediately.vue'),
     },
+    //立即购票03（导航跳转）
+    {
+        path: '/threetheticketimmediately',
+        component: () =>
+            import ('../components/threetheticketimmediately/ThreeTheTicketImmediately.vue'),
+    },
     //圈圈俱乐部（导航跳转）
     {
         path: '/circleclub',
