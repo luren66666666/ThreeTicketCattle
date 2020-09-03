@@ -15,11 +15,35 @@
         <div class="divtime"></div>
         <p class="ppiao">选择场次</p>
         <div class="divpiaobox">
-            <div class="divpiao" v-for="(value,index) in 5" :key="index">
+            <div class="divpiao" v-for="(value,index) in 6" :key="index" @click.stop="img2box">
                 <span>100早鸟票</span>
             </div>
+            <van-cell is-link @click="showPopup" v-show="false">展示弹出层</van-cell>
+            <van-popup v-model="show" position="bottom" :style="{ height: '45%' }">
+                <div class="imgpiao">
+                    <img src="../../assets/images/票牛-立即购票/矩形 11.png" alt="" class="img1">
+                    <span class="span1">100早鸟票</span>
+                    <span class="span2">×</span>
+                </div>
+                <div class="boxquyu">
+                    <img src="../../assets/images/票牛-立即购票/矩形 1 拷贝 3.png" alt="" class="img2">
+                    <span class="span3">区域随机</span>
+                    <span class="span4">仅剩<span class="span5">6</span>张</span>
+                </div>
+                <span class="span6">已经到底了</span>
+                <div class="footdiv">
+
+                </div>
+            </van-popup>
         </div>
 
+        <div class="img2box" @click="img2box">
+            <img src="../../assets/images/票牛-立即购票/矩形 3.png" alt="" class="img2" >
+            <span class="span7">已选：区域随机<span>1张</span></span>
+            <span class="span8">选择数量</span>
+            <van-icon name="arrow" />
+        </div>
+        
         <!-- 底部 -->
         <div class="boxfoot">
             <div class="title">
@@ -32,19 +56,37 @@
                     <span class="span5">239</span>/张
                 </span>
             </div>
-            <img src="../../assets/images/票牛-立即购票/圆角矩形 2.png" alt="">
+            <img src="../../assets/images/票牛-立即购票/圆角矩形 2.png" alt="" class="img1">
             <span class="span6">确认</span>
+            
         </div>
     </div>
 </template>
 <script>
 export default {
-    
+    methods: {
+        showPopup() {
+            this.show = true;
+        },
+        img2box(){
+            this.showPopup();
+        }
+    },
+    data(){
+        return {
+             show: false,
+        }
+    }
 }
 </script>
 <style lang="scss">
 // @import '@/assets/style/reset.scss';
     .Buy-tickets-immediately{
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         // background-color: white;
         .van-nav-bar{
             height: 36px;
@@ -122,13 +164,121 @@ export default {
                     margin-left: 11px;
                 }
             }
+            .van-popup{
+                .imgpiao{
+                    width: 90px;
+                    height: 25px;
+                    position: absolute;
+                    top: 9px;
+                    .img1{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .span1{
+                        position: absolute;
+                        left: 11px;
+                        top: 5px;
+                        font-size: 11px;
+                        font-family: Regular;
+                        color: #FFFFFF;
+                    }
+                    .span2{
+                        position: absolute;
+                        left: 75px;
+                        top: 5px;
+                        font-size: 16px;
+                        color: #FFFFFF;
+                    }                 
+                }
+                .boxquyu{
+                    width: 338px;
+                    height: 35px;
+                    position: absolute;
+                    top: 45px;
+                    left: 19px;
+                    .img2{
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .span3{
+                        position: absolute;
+                        top: 57px;
+                        left: 34px;
+                        font-size: 13px;
+                        font-family: Medium;
+                        color: #FF2661;
+                    }
+                    .span4{
+                        font-size: 11px;
+                        font-family: Regular;
+                        color: #FFFFFF;
+                        // .span5{
+
+                        // }
+                    }
+                }
+                // .span6{
+
+                // }
+                .footdiv{
+                    width: 100%;
+                    height: 45px;
+                    position: absolute;
+                    bottom: 43px;
+                }
+            }
         }
+        .img2box{
+            width: 346px;
+            height: 41px;
+            position: absolute;
+            bottom: 48px;
+            left: 14px;
+            .span7{
+                white-space: nowrap;
+                position: absolute;
+                left: 11px;
+                top: 10px;
+                font-size: 13px;
+                font-family: Medium;
+                color: #FFFEFE;
+                span{
+                    color: #FFFEFE;
+                }
+            }
+            .span8{
+                white-space: nowrap;
+                position: absolute;
+                left: 271px;
+                top: 10px;
+                font-size: 13px;
+                font-family: Light;
+                color: #FFFEFE;
+            }
+            .img2{
+                z-index: -1;
+                width: 346px;
+                height: 41px;
+                position: absolute;
+                top: 0px;
+            }
+            .van-icon{
+                font-size: 14px;
+                color: white;
+                position: absolute;
+                left: 327px;
+                top: 12px;
+            }
+        }
+        
         .boxfoot{
+            z-index: 3000;
             width: 100%;
             height: 42px;
-            // background-color: red;
+            background-color: white;
             position: fixed;
-            bottom: 1px;
+            border-top: 1px solid #eeeeee;
+            bottom: 0px;
             .title{
                 // height: 13px;
                 position: absolute;
@@ -158,22 +308,21 @@ export default {
                 font-family: Light;
                 color: #909090;
             }
-            img{
+            .img1{
                 width: 95px;
                 height: 37px;
                 position: absolute;
                 right: 11px;
-                top: 5px;
+                top: 3px;
             }
             .span6{
                 position: absolute;
                 right: 44px;
-                top: 12px;
+                top: 11px;
                 font-size: 15px;
                 font-family: Regular;
                 color: #FFFEFE;
             }
         }
-        
     }
 </style>

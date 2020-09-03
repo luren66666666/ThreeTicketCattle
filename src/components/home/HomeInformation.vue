@@ -144,8 +144,5 @@ export default {
                 }
             }
         }
-        
-       
-         
     }
 </style>
