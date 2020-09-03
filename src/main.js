@@ -50,7 +50,8 @@ import {
     GoodsActionButton,
     Field,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    ActionSheet,
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -88,7 +89,7 @@ Vue.use(GoodsActionButton) //GoodsAction 商品导航
 Vue.use(Field) //输入框
 Vue.use(Checkbox) //复选框
 Vue.use(CheckboxGroup) //复选框
-    // import './assets/style/dailyReward.scss';
+Vue.use(ActionSheet); //动作面板弹出
 
 
 
