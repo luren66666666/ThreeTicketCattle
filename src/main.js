@@ -50,7 +50,11 @@ import {
     GoodsActionButton,
     Field,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    Toast,
+    CouponCell, 
+    CouponList,
+    Form
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -88,6 +92,10 @@ Vue.use(GoodsActionButton) //GoodsAction 商品导航
 Vue.use(Field) //输入框
 Vue.use(Checkbox) //复选框
 Vue.use(CheckboxGroup) //复选框
+Vue.use(Toast)//轻提示
+Vue.use(CouponCell);//优惠券
+Vue.use(CouponList);//优惠券
+Vue.use(Form);//表单
     // import './assets/style/dailyReward.scss';
 
 

@@ -72,11 +72,23 @@ const routes = [
         component: () =>
             import ('../components/dailyReward/DailyReward.vue'),
     },
+    //活动规则
+    {
+        path: '/activityRules',
+        component: () =>
+            import ('../components/dailyReward/ActivityRules.vue'),
+    },
     //日历（导航跳转）
     {
         path: '/calendar',
         component: () =>
             import ('../components/calendar/Calendar.vue'),
+    },
+    //确认订单（导航跳转）
+    {
+        path: '/confirmorder',
+        component: () =>
+            import ('../components/confirmorder/ConfirmOrder.vue'),
     },
     //演出详情（导航跳转）
     {
