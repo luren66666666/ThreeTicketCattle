@@ -56,12 +56,12 @@
             </div>
 
             <!-- 上海野生动物园列表 -->
-            <div class="Shanghai-Zoo-List" v-for="(value,index) in 3" :key="index">
-                <img src="../../assets/images/票牛-推荐/图层 6.png" alt="">
-                <span class="span1">上海野生动物园</span>
-                <span class="span2">2019.09.03-2020.3.11</span>
-                <span class="span3">上海野生动物园</span>
-                <span class="span4"><span class="span5">49</span>元起</span>
+            <div class="Shanghai-Zoo-List" v-for="(value) in ZooArr" :key="value.id">
+                <img :src="value.img" alt="">
+                <span class="span1">{{value.title}}</span>
+                <span class="span2">{{value.time}}</span>
+                <span class="span3">{{value.title}}</span>
+                <span class="span4"><span class="span5">{{value.price}}</span>元起</span>
             </div>
         </div>
 
@@ -69,10 +69,34 @@
     </div>
 </template>
 <script>
+import ZooImg1 from '../../assets/images/票牛-推荐/组 3.png'
+import ZooImg2 from '../../assets/images/票牛-推荐/组 4.png'
+import ZooImg3 from '../../assets/images/票牛-推荐/组 4(1).png'
 export default {
     data(){
         return {
-            listArr:['爆款推荐','春末初夏','释放压力','爱宠同游']
+            listArr:['爆款推荐','春末初夏','释放压力','爱宠同游'],
+            ZooArr:[{
+                img:ZooImg1,
+                title:'上海野生动物园',
+                time:'2019.06.17-2020.08.31',
+                price:69,
+                id:'111111'
+            },
+            {
+                img:ZooImg2,
+                title:'上海野生动物园',
+                time:'2019.09.03-2020.3.11',
+                price:49,
+                id:'222222'
+            },
+            {
+                img:ZooImg3,
+                title:'上海海昌海洋公园',
+                time:'2019.02.15-2019.09.15',
+                price:49,
+                id:'333333'
+            },],
         }
     }
 }
