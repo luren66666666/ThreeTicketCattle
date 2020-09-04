@@ -1,106 +1,110 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-02 17:22:45
+ * @LastEditTime: 2020-09-03 19:18:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
 -->
 <template>
-    <div class="discover-wrap">
-        <!-- 热门关注 -->
-        <div>
-            <van-nav-bar fixed placeholder border>
-                <template #left>
-                    <van-icon name="search" size="18" />
-                    <div class="remen">
-                        <div v-for="(value,index) in tab" :key="index" :class="{active:isIndex==index}" @click="onTab(index)">
-                            {{ value.title }}
-                        </div>
+    <div id="discover-wrap">
+        <div class="container">
+            <!-- 热门关注 -->
+            <div class="discover">
+                <van-icon name="search" size="18" />
+                <div class="remen">
+                    <div v-for="(value,index) in tab" :key="index" :class="{active:isIndex==index}" @click="onTab(index)">
+                        {{ value.title }}
                     </div>
-                </template>
-            </van-nav-bar>
-        </div>
-        <!-- 图片 -->
-        <div class="img-wrap">
-            <img :src="img" alt="">
-        </div>
-        <!-- 免费抽奖,拍客现场,每日奖励 -->
-        <div class="choujiang-wrap">
-            <div>
-                <span>免费抽奖</span>
-                <span>现场体验官</span>
-                <span><img src="" alt=""></span>
+                </div>
             </div>
-            <div >
-                <span>拍客现场</span>
-                <span>看拍客攻略</span>
-                <span><img src="" alt=""></span>
+            <!-- 图片 -->
+            <div class="img-wrap">
+                <img :src="img" alt="">
             </div>
-            <div @click="toDailyReward">
-                <span>每日奖励</span>
-                <span>100元未领取</span>
-                <span><img src="" alt=""></span>
+            <!-- 免费抽奖,拍客现场,每日奖励 -->
+            <div class="choujiang-wrap">
+                <div @click="toFreePrizeDraw">
+                    <span>免费抽奖</span>
+                    <span>现场体验官</span>
+                    <span><img src="" alt=""></span>
+                </div>
+                <div >
+                    <span>拍客现场</span>
+                    <span>看拍客攻略</span>
+                    <span><img src="" alt=""></span>
+                </div>
+                <div @click="toDailyReward">
+                    <span>每日奖励</span>
+                    <span>100元未领取</span>
+                    <span><img src="" alt=""></span>
+                </div>
             </div>
-        </div>
-        <!-- 小十播报，独家探班 -->
-        <div class="xiaoshi-wrap">
-            <div>
-                <img :src="img1" alt="">
-                <p>不死的戏剧 与无边的戏台</p>
+            <!-- 小十播报，独家探班 -->
+            <div class="xiaoshi-wrap">
+                <div>
+                    <img :src="img1" alt="">
+                    <p class="line-ellipsis">不死的戏剧 与无边的戏台</p>
+                </div>
+                <div>
+                    <img :src="img2" alt="">
+                    <p class="line-ellipsis">阿朵专访：曾经消失5年，再见阿朵专访：曾经消失5年，再见</p>
+                </div>
             </div>
-            <div>
-                <img :src="img2" alt="">
-                <p class="line-ellipsis">阿朵专访：曾经消失5年，再见阿朵专访：曾经消失5年，再见</p>
-            </div>
-        </div>
-        <!-- 全部 -->
-        <div>
-            <van-tabs v-model="active" sticky offset-top=46>
-                <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title">
-                    <div v-show="index==0">
-                        <div class="quanbu-wrap">
-                            <img :src="img" alt="" v-for="value in 10" :key="value" style="width:97px;height:59px">
-                        </div>
-                        <div v-for="(value,index) in 10" :key="index" style="margin-bottom:9px">
-                            <div class="user-wrap">
-                                <div class="user">
-                                    <img :src="img" alt="">
-                                    <div>
-                                        <p class="p1">努力努力再努力-vtG6s</p>
-                                        <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
-                                    </div> 
-                                </div>
-                                <p class="p3">十分期待哦！</p>
-                            </div>
-                            <div class="zan-wrap">
-                                <p>2.3K 阅读</p>
-                                <div class="zan">
-                                    <div>
-                                        <van-icon name="good-job-o" />
-                                        <span>赞</span>
-                                    </div>
-                                    <div>
-                                        <van-icon name="other-pay" />
-                                        <span>回复</span>
-                                    </div>
-                                    <div>
-                                        <van-icon name="fire-o" />
-                                        <span>分享</span>
-                                    </div>
+            <!-- 全部 -->
+            <div class="quanbu-wrap">
+                <van-tabs v-model="active" sticky offset-top=46>
+                    <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title">
+                        <div v-show="index==0">
+                            <!-- 图片滑动 -->
+                            <div class="huadong-wrap">
+                                <div class="huadong">
+                                    <img :src="img" alt="" v-for="value in 10" :key="value">
                                 </div>
                             </div>
+                            <div v-for="(value,index) in 10" :key="index" style="margin-bottom:9px">
+                                <!-- 用户发表 -->
+                                <div class="user-wrap">
+                                    <div class="user">
+                                        <img :src="img" alt="">
+                                        <div>
+                                            <p class="p1">努力努力再努力-vtG6s</p>
+                                            <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
+                                        </div> 
+                                    </div>
+                                    <p class="p3">十分期待哦！</p>
+                                </div>
+                                <!-- 赞回复评论 -->
+                                <div class="zan-wrap">
+                                    <p>2.3K 阅读</p>
+                                    <div class="zan">
+                                        <div>
+                                            <van-icon name="good-job-o" />
+                                            <span>赞</span>
+                                        </div>
+                                        <div>
+                                            <van-icon name="other-pay" />
+                                            <span>回复</span>
+                                        </div>
+                                        <div>
+                                            <van-icon name="fire-o" />
+                                            <span>分享</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div v-show="index==1">音乐</div>
-                    <div v-show="index==2">戏剧</div>
-                    <div v-show="index==3">展览</div>
-                    <div v-show="index==4">亲子</div>
-                    <div v-show="index==5">幕后花絮</div>
-                </van-tab>
-            </van-tabs> 
+                        <div v-show="index==1">音乐</div>
+                        <div v-show="index==2">戏剧</div>
+                        <div v-show="index==3">展览</div>
+                        <div v-show="index==4">亲子</div>
+                        <div v-show="index==5">幕后花絮</div>
+                    </van-tab>
+                </van-tabs> 
+            </div>
         </div>
     </div>
+    
 </template>
 <script>
 import img from '../../assets/img/组 17.png'
@@ -150,127 +154,130 @@ export default {
         onTab(i) {
             this.isIndex = i;
         },
-        onClickLeft() {
-            Toast('按钮');
-        },
         toDailyReward() {
             this.$router.push('/dailyreward');
+        },
+        toFreePrizeDraw() {
+            this.$router.push('/freeprizedraw');
         }
-        
-  },
+    }
 }
 </script>
-<style lang="scss">
-
-    .discover-wrap {
-        // position: fixed;
-        // top: 0;
-        // left: 0;
-        // right: 0;
-        // bottom: 0;
-        background: #eee;
-        .van-nav-bar__placeholder{
-            background: #fff;
-            .van-nav-bar__left{
-                width: 220px;
-                display: flex;
-                justify-content: space-between;
-                .remen{
-                    width: 93px;
-                    display: flex;
-                    justify-content: space-between;
-                    .active{
-                        color: #000;
-                        font-weight: bolder;
-                    }
+<style lang="scss" scoped>
+@import '@/assets/sass/reset.scss';
+// 全局
+#discover-wrap {
+    background: #eee;
+    // 热门关注
+    .discover{
+        width: 351px;
+        height: 46px;
+        line-height: 46px;
+        padding: 0 12px;
+        background: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        .remen{
+            width: 93px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        .active{
+            color: #000;
+            font-weight: bolder;
+            font-size: 15px;
+        }
+    }
+    // 图片
+    .img-wrap{
+        width: 100%;
+        height: 101px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    // 免费抽奖,拍客现场,每日奖励
+    .choujiang-wrap{
+        background: #fff;
+        width: 351px;
+        padding: 20px 12px 10px;
+        display: flex;
+        justify-content: space-between;
+        div{
+            width: 106px;
+            height: 57px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,.1);
+            border-radius: 2px;
+            padding: 9px 0 0 7px;
+            span{
+                &:nth-of-type(1){
+                    font-size: 15px;
+                    font-weight: bold;
+                    color: #000000;
+                    line-height: 30px;
+                }
+                &:nth-of-type(2){
+                    font-size: 12px;
+                    color: #aaa;
                 }
             }
         }
-       .van-nav-bar{
-            // margin-top: 44px;
-            display: flex;
-            justify-content:space-between;
-        .van-icon{
-            color: #000;
-        }
-        .van-tabs__wrap{
-            margin-left: 108px;
-            width: 95px;
-        }
-        .van-tab--active{
-            font-weight: 700;
-        }
-        }
-        .img-wrap{
-            width: 375px;
-            height: 101px;
+    }
+    // 小十播报，独家探班
+    .xiaoshi-wrap{
+        width: 351px;
+        background: #fff;
+        padding: 5px 12px 10px;
+        display: flex;
+        justify-content: space-between;
+        div{
+            width: 173px;
+            height: 105px;
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,.1);
             img{
                 width: 100%;
-                height: 100%;
+                height: 75px;
+            }
+            p{
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 30px;
             }
         }
-        .choujiang-wrap{
-            // width: 375px;
-            // height: 100px;
+    }
+    // 全部
+    .quanbu-wrap{
+        width: 100%;
+        // 图片滑动
+        .huadong-wrap{
+            width: 100%;
+            padding: 10px 0;
             background: #fff;
-            padding: 20px 14px 10px;
-            display: flex;
-            justify-content: space-between;
-            div{
-                width: 107px;
-                height: 57px;
+                .huadong{
+                width: 363px;
+                transform: translateX(12px);
                 display: flex;
-                flex-direction: column;
-                box-shadow: -1px 3px 3px rgba(0,0,0,.1);
-                border-radius: 2px;
-                padding: 9px 0 0 7px;
-                span{
-                    &:nth-of-type(1){
-                        font-size: 15px;
-                        font-weight: bold;
-                        color: #000000;
-                        line-height: 30px;
-                    }
-                    &:nth-of-type(2){
-                        font-size: 12px;
-                        color: #aaa;
-                    }
-                }
-            }
-        }
-        .xiaoshi-wrap{
-            background: #fff;
-            padding: 10px 13px 10px;
-            display: flex;
-            justify-content: space-between;
-            div{
-                width: 173px;
-                height: 105px;
-                box-shadow: -1px 3px 3px rgba(0,0,0,.1);
+                flex-wrap: nowrap;
+                overflow: scroll;
                 img{
-                    width: 100%;
-                    height: 75px;
-                }
-                p{
-                    font-size: 12px;
-                    font-weight: bold;
-                    line-height: 24px;
+                    width: 90px;
+                    height: 51px;
+                    margin-right: 4px;
                 }
             }
         }
-        .quanbu-wrap{
-            height: 80px;
-            padding: 10px 0 0 14px;
-            display: flex;
-            flex-wrap: nowrap;
-            overflow: scroll;
-            background: #fff;
-            img{
-                margin-right: 4px;
-            }
-        }
+        // 用户发表
         .user-wrap{
-            padding-left: 14px;
+            padding: 14px;
             height: 100px;
             background: #fff;
             .user{
@@ -304,9 +311,10 @@ export default {
                 color: #212527;
             }
         }
+        // 赞回复评论
         .zan-wrap{
             background: #fff;
-            padding: 0 13px 10px;
+            padding: 0 12px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -333,4 +341,5 @@ export default {
             }
         }
     }
+}
 </style>

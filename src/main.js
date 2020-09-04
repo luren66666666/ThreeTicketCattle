@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-02 10:41:53
+ * @LastEditTime: 2020-09-03 19:54:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\main.js
@@ -89,9 +89,7 @@ Vue.use(Field) //输入框
 Vue.use(Checkbox) //复选框
 Vue.use(CheckboxGroup) //复选框
     // import './assets/style/dailyReward.scss';
-
-
-
+import './assets/sass/vant.scss';
 
 new Vue({
     router,
