@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-03 19:54:39
+ * @LastEditTime: 2020-09-04 15:07:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\main.js
@@ -50,7 +50,8 @@ import {
     GoodsActionButton,
     Field,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    List
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -88,6 +89,7 @@ Vue.use(GoodsActionButton) //GoodsAction 商品导航
 Vue.use(Field) //输入框
 Vue.use(Checkbox) //复选框
 Vue.use(CheckboxGroup) //复选框
+Vue.use(List); //列表
     // import './assets/style/dailyReward.scss';
 import './assets/sass/vant.scss';
 
