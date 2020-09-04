@@ -52,7 +52,7 @@ export default {
    
 }
 </script>>
-<style lang="scss" scoped>
+<style lang="scss" >
 .slide-fade-enter-active {
   transition: all .3s ease;
 }
@@ -63,6 +63,9 @@ export default {
 /* .slide-fade-leave-active for below version 2.1.8 */ {
 //   transform: translateX(-10px);
   opacity: 0;
+}
+.van-grid-item__content{
+    padding:0;
 }
   header{
         position: fixed;

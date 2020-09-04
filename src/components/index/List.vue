@@ -1,8 +1,8 @@
 <template>
     <div class="list">
-            <van-tabs v-model="active"  swipeable sticky offset-top="32px">
+            <van-tabs v-model="active"  swipeable sticky offset-top="30px">
                 <van-tab title="推荐" >
-                     <li class="list-conten">
+                     <li class="list-conten" >
                         <div class="list-img">
                             <img src="../../assets/index-img/组 19.png" alt="">
                             <span>票牛口碑榜NO1</span>

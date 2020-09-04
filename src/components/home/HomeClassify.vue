@@ -7,24 +7,25 @@
         </div>
         <!-- 导航栏 -->
         <van-tabs v-model="active" swipeable>
-        <van-tab v-for="(item, index) in list" 
-        :title="item.title" 
-        :key="index">
-         </van-tab>
-            </van-tabs>
-            <van-dropdown-menu>
-                <!-- 综合排序 -->
-            <van-dropdown-item v-model="values" :options="option" />
-            <!-- 全部时间 -->
-            <van-dropdown-item :title="date || '全部时间'" ref="item" v-model="value">
-            <van-cell title="9月演出" 
-            :value="date" 
-            @click="show = true" 
-            close-on-click-overlay="true"
-            />
-            <van-calendar v-model="show" @confirm="onConfirm" @select="aaa"/>
-            </van-dropdown-item>
-            </van-dropdown-menu>
+            <van-tab v-for="(item, index) in list" 
+            :title="item.title" 
+            :key="index"
+            >
+            </van-tab>
+        </van-tabs>
+        <van-dropdown-menu>
+            <!-- 综合排序 -->
+                <van-dropdown-item v-model="values" :options="option" />
+                <!-- 全部时间 -->
+                <van-dropdown-item :title="date || '全部时间'" ref="item" v-model="value">
+                <van-cell title="9月演出" 
+                :value="date" 
+                @click="show = true" 
+                close-on-click-overlay="true"
+                />
+                <van-calendar v-model="show" @confirm="onConfirm" @select="aaa"/>
+                </van-dropdown-item>
+        </van-dropdown-menu>
             <!-- 列表 -->
             <van-card
                 v-for="(item, index) in 10"
@@ -33,8 +34,9 @@
                 title="商品标题"
                 thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
                 :key="index"
-                @click="sidebarChange(item.id)"
                 >
+            <!-- @click="sidebarChange(item.id)" -->
+
                 <template #tags>
                     <van-tag plain type="danger">标签</van-tag>
                     <van-tag plain type="danger">标签</van-tag>
@@ -130,6 +132,9 @@ export default {
       this.date = this.formatDate(date);
       console.log(this.date)
     },
+    tabList(val){
+       console.log(val)
+    }
     //  sidebarChange(id) {
     //   // console.log(this.sidebarList[index].id)
     //   // console.log(id)

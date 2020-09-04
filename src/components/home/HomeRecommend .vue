@@ -1,5 +1,5 @@
 <template>
-     <div>
+
         <div class="index-center" @scroll="ScrollHeight"  >
             <indexHeader :show="show"   />
             <indexNav />
@@ -8,7 +8,7 @@
             <indexList />
         </div>
     
-     </div>
+   
      
   
     
@@ -26,8 +26,7 @@ export default {
         return {
         show:{
         isSite:true,
-        isCalendar:false,
-        
+        isCalendar:false,    
         }
         }
     },
@@ -45,9 +44,7 @@ export default {
 
     
     mounted(){
-       
          window.addEventListener('scroll', this.ScrollHeight, true)
-      
     },
     methods:{
         ScrollHeight(){
@@ -63,10 +60,7 @@ export default {
      
         },
        
-        cccc(val){
-        
-            this.contenShow=val
-        }
+       
     }
 }
 </script>
