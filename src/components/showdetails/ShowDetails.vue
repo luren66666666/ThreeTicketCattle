@@ -2,7 +2,7 @@
     <div class="showdetails-container">
         <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder>
             <template #right>
-                <van-icon name="search" size="18" />
+                <van-icon name="cluster-o" size="18" />
             </template>
         </van-nav-bar>
          <div class="section-middle">
@@ -58,7 +58,7 @@ export default {
             .van-nav-bar__title{
                 font-size: 15px;
             }
-            .van-icon-search{
+            .van-icon-cluster-o{
                 width: 15px;
                 height: 16px;
                 color: #000000;

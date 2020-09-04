@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-02 10:33:49
- * @LastEditTime: 2020-09-02 21:10:51
+ * @LastEditTime: 2020-09-03 19:54:18
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\serviceAssurance\ServiceAssurance.vue
@@ -76,16 +76,9 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-@import '@/assets/sass/reset.scss';
+<style lang="scss" scoped>
+@import '../../assets/sass/reset.scss';
 .service-assurance{
-    .van-nav-bar .van-icon{
-        color: #000;
-    }
-    .van-nav-bar__title{
-        font-weight: bold;    
-        color: #494C4C;
-    }
     .img1{
         width: 100%;
         height: 142px;

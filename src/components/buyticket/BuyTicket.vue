@@ -2,16 +2,16 @@
     <div class="buyticket-container">
         <div class="background-img"></div>
         <div class="top-title1" v-if="showColor">
-            <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder>
+            <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder @click-left="goBack">
                 <template #right>
-                    <van-icon name="search" size="18" />
+                    <van-icon name="cluster-o" size="18" />
                 </template>
             </van-nav-bar>
         </div>
         <div class="top-title2" v-else>
             <van-nav-bar title="" left-text="" left-arrow fixed placeholder>
                 <template #right>
-                    <van-icon name="search" size="18" />
+                    <van-icon name="cluster-o" size="18" />
                 </template>
             </van-nav-bar>
         </div>
@@ -106,7 +106,10 @@ export default {
             }else {
                 this.showColor = false;
             }
-         } 
+         } ,
+        goBack(){
+            this.$router.go(-1);
+        }
      }
 }
 </script>
@@ -145,7 +148,7 @@ export default {
             .van-nav-bar__title{
                 font-size: 15px;
             }
-            .van-icon-search{
+            .van-icon-cluster-o{
                 width: 15px;
                 height: 16px;
                 color: #000000;

@@ -27,6 +27,7 @@
                 <van-empty
                     class="custom-image"
                     :image="emptyImg"
+                     description="暂无系统消息"
                 />
             </main>
         </van-pull-refresh>
@@ -60,7 +61,7 @@ export default {
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
     * {
         margin: 0;
         padding: 0;
@@ -68,8 +69,14 @@ export default {
         font-family: Medium;
     }
     .information {
+        background: #F2F2F2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 50px;
         .van-nav-bar {
-            height: 53px;
+            height: 38px;
         }
         .van-nav-bar__title {
             font-family: Bold;
@@ -95,7 +102,6 @@ export default {
             left: 0;
             right: 0;
             bottom: 50px;
-            background: #F2F2F2;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -137,15 +143,12 @@ export default {
             .custom-image {
                 width: 100%;
                 padding: 0;
-                .van-empty__image {
+                &::v-deep .van-empty__image {
                     width: 84px;
                     height: 60px;
                     margin-top: 157px;
                 }
             }
         }
-        
-       
-         
     }
 </style>

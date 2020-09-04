@@ -77,7 +77,7 @@
                 </div>
                 <div class="right">
                     <img src="../../assets/MineImg/组 18 拷贝@2x.png" alt="">
-                    <div>
+                    <div @click="vip">
                         <span>圈圈会员</span>
                         <span>达人专属</span>
                     </div>
@@ -173,6 +173,11 @@ export default {
     mounted() {
         this.token = localStorage.getItem('token')
     },
+    methods: {
+        vip() {
+            this.$router.push('/circleclub')
+        }
+    },
 }
 </script>
 
@@ -191,12 +196,12 @@ export default {
         background: #F2F1F1;
         header {
             width: 100%;
-            height: 155px;
+            height: 139px;
             background:url(../../assets/MineImg/headerBg.png) 100% 100% no-repeat;
             color: #fff;
             .person {
                 height: 51px;
-                margin-top: 34px;
+                margin-top: 18px;
                 padding-left: 20px;
                 position: relative;
                 display: flex;
@@ -318,6 +323,8 @@ export default {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                justify-content: space-between;
+                margin: 15px 0 16px 0;
                 span {
                     font-size: 11px;
                     color: #475153;
@@ -325,7 +332,6 @@ export default {
                 .dis-num {
                     font-size: 15px;
                     color: #E50054;
-                     margin: 15px 0 8px 0;
                 }
             }
         }

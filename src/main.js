@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-02 10:41:53
+ * @LastEditTime: 2020-09-03 19:54:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\main.js
@@ -50,7 +50,15 @@ import {
     GoodsActionButton,
     Field,
     Checkbox,
-    CheckboxGroup
+    CheckboxGroup,
+    ActionSheet,
+    Toast,
+    CouponCell,
+    CouponList,
+    Form,
+    NoticeBar,
+    RadioGroup,
+    Radio
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -88,10 +96,21 @@ Vue.use(GoodsActionButton) //GoodsAction 商品导航
 Vue.use(Field) //输入框
 Vue.use(Checkbox) //复选框
 Vue.use(CheckboxGroup) //复选框
-    // import './assets/style/dailyReward.scss';
+Vue.use(ActionSheet); //动作面板弹出
+Vue.use(Toast) //轻提示
+Vue.use(CouponCell); //优惠券
+Vue.use(CouponList); //优惠券
+Vue.use(Form); //表单
+Vue.use(NoticeBar) //通知栏
+Vue.use(RadioGroup) //单选框
+Vue.use(Radio) //单选框
+
+// import './assets/style/dailyReward.scss';
 
 
 
+// import './assets/style/dailyReward.scss';
+import './assets/sass/vant.scss';
 
 new Vue({
     router,

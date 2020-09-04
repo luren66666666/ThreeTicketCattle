@@ -105,7 +105,7 @@
 
         <!-- 底部 -->
 
-        <div class="footerimg">
+        <div class="footerimg" @click="tocirclub">
             <img :src="img06" alt="">
         </div>
         <van-popup
@@ -115,8 +115,13 @@
          closeable
         close-icon-position="top-left"
         >
-        <div class="issueHeader"><span>发表圈圈</span><button>发布</button></div>
-        <textarea  placeholder="写几句感想吧~" style="font-size:14px;width:100%;height:150px;border:none"></textarea>
+
+
+        <!-- ------------------------------------------- -->
+        <div class="issueHeader"><span>发表圈圈</span><button @click="fabu">发布</button></div>
+        <textarea  placeholder="写几句感想吧~" style="font-size:14px;width:100%;height:150px;border:none"
+        v-model=" message "
+        ></textarea>
         </van-popup>
     </div>
 </template>
@@ -179,7 +184,7 @@ export default {
             currentRate: 0,
             img06:img06,
             show: false,
-
+            message:''
         }
     },
     methods: {
@@ -207,18 +212,27 @@ export default {
             if(i === 2 || 3) {
             this.$router.push('/home/discover')
             }
+        },
+        tocirclub() {
+            this.$router.push('/circleclub')
+        },
+        
+        fabu() {
+            this.$toast.success('发布成功')
+            this.message = ''
         }
     },
     computed: {
         text() {
         return this.currentRate.toFixed(0) + '%';
         },
+        
     },
 }
 </script>
 
 
-<style lang="scss" >
+<style lang="scss">
 @import '@/assets/style/dailyReward.scss';
     .daily-reward{
         position: fixed;
