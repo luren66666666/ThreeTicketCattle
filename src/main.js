@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-03 19:54:39
+ * @LastEditTime: 2020-09-04 15:07:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\main.js
@@ -58,7 +58,8 @@ import {
     Form,
     NoticeBar,
     RadioGroup,
-    Radio
+    Radio,
+    List,
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -104,12 +105,7 @@ Vue.use(Form); //表单
 Vue.use(NoticeBar) //通知栏
 Vue.use(RadioGroup) //单选框
 Vue.use(Radio) //单选框
-
-// import './assets/style/dailyReward.scss';
-
-
-
-// import './assets/style/dailyReward.scss';
+Vue.use(List); //列表
 import './assets/sass/vant.scss';
 
 new Vue({

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-03 19:18:52
+ * @LastEditTime: 2020-09-04 16:01:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -18,95 +18,101 @@
                     </div>
                 </div>
             </div>
-            <!-- 图片 -->
-            <div class="img-wrap">
-                <img :src="img" alt="">
-            </div>
-            <!-- 免费抽奖,拍客现场,每日奖励 -->
-            <div class="choujiang-wrap">
-                <div @click="toFreePrizeDraw">
-                    <span>免费抽奖</span>
-                    <span>现场体验官</span>
-                    <span><img src="" alt=""></span>
+            <!-- 下拉刷新 -->
+            <van-pull-refresh v-model="isLoading" @refresh="onRefresh" success-text="刷新成功" head-height=46 style="background:#fff">
+                <!-- 图片 -->
+                <div class="img-wrap">
+                    <img :src="img" alt="">
                 </div>
-                <div >
-                    <span>拍客现场</span>
-                    <span>看拍客攻略</span>
-                    <span><img src="" alt=""></span>
+                <!-- 免费抽奖,拍客现场,每日奖励 -->
+                <div class="choujiang-wrap">
+                    <div @click="toFreePrizeDraw">
+                        <span>免费抽奖</span>
+                        <span>现场体验官</span>
+                        <span><img src="" alt=""></span>
+                    </div>
+                    <div >
+                        <span>拍客现场</span>
+                        <span>看拍客攻略</span>
+                        <span><img src="" alt=""></span>
+                    </div>
+                    <div @click="toDailyReward">
+                        <span>每日奖励</span>
+                        <span>100元未领取</span>
+                        <span><img src="" alt=""></span>
+                    </div>
                 </div>
-                <div @click="toDailyReward">
-                    <span>每日奖励</span>
-                    <span>100元未领取</span>
-                    <span><img src="" alt=""></span>
+                <!-- 小十播报，独家探班 -->
+                <div class="xiaoshi-wrap">
+                    <div>
+                        <img :src="img1" alt="">
+                        <p class="line-ellipsis">不死的戏剧 与无边的戏台</p>
+                    </div>
+                    <div>
+                        <img :src="img2" alt="">
+                        <p class="line-ellipsis">阿朵专访：曾经消失5年，再见阿朵专访：曾经消失5年，再见</p>
+                    </div>
                 </div>
-            </div>
-            <!-- 小十播报，独家探班 -->
-            <div class="xiaoshi-wrap">
-                <div>
-                    <img :src="img1" alt="">
-                    <p class="line-ellipsis">不死的戏剧 与无边的戏台</p>
-                </div>
-                <div>
-                    <img :src="img2" alt="">
-                    <p class="line-ellipsis">阿朵专访：曾经消失5年，再见阿朵专访：曾经消失5年，再见</p>
-                </div>
-            </div>
-            <!-- 全部 -->
-            <div class="quanbu-wrap">
-                <van-tabs v-model="active" sticky offset-top=46>
-                    <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title">
-                        <div v-show="index==0">
-                            <!-- 图片滑动 -->
-                            <div class="huadong-wrap">
-                                <div class="huadong">
-                                    <img :src="img" alt="" v-for="value in 10" :key="value">
-                                </div>
-                            </div>
-                            <div v-for="(value,index) in 10" :key="index" style="margin-bottom:9px">
-                                <!-- 用户发表 -->
-                                <div class="user-wrap">
-                                    <div class="user">
-                                        <img :src="img" alt="">
-                                        <div>
-                                            <p class="p1">努力努力再努力-vtG6s</p>
-                                            <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
-                                        </div> 
-                                    </div>
-                                    <p class="p3">十分期待哦！</p>
-                                </div>
-                                <!-- 赞回复评论 -->
-                                <div class="zan-wrap">
-                                    <p>2.3K 阅读</p>
-                                    <div class="zan">
-                                        <div>
-                                            <van-icon name="good-job-o" />
-                                            <span>赞</span>
-                                        </div>
-                                        <div>
-                                            <van-icon name="other-pay" />
-                                            <span>回复</span>
-                                        </div>
-                                        <div>
-                                            <van-icon name="fire-o" />
-                                            <span>分享</span>
-                                        </div>
+                <!-- 全部 -->
+                <div class="quanbu-wrap">
+                    <van-tabs v-model="active" sticky offset-top=46>
+                        <van-tab v-for="(value,index) in tabList" :key="index" :title="value.title">
+                            <div v-show="index==0">
+                                <!-- 图片滑动 -->
+                                <div class="huadong-wrap">
+                                    <div class="huadong">
+                                        <img :src="img" alt="" v-for="value in 10" :key="value">
                                     </div>
                                 </div>
+                                <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
+                                    <div v-for="(value,index) in list" :key="index" style="margin-bottom:9px">
+                                        <!-- 用户发表 -->
+                                        <div class="user-wrap">
+                                            <div class="user">
+                                                <img :src="img" alt="">
+                                                <div>
+                                                    <p class="p1">努力努力再努力-vtG6s</p>
+                                                    <p class="p2">来自电竞：英雄联盟是0总决赛上海赛</p>
+                                                </div> 
+                                            </div>
+                                            <p class="p3">十分期待哦！</p>
+                                        </div>
+                                        <!-- 赞回复评论 -->
+                                        <div class="zan-wrap">
+                                            <p>2.3K 阅读</p>
+                                            <div class="zan">
+                                                <div>
+                                                    <van-icon name="good-job-o" />
+                                                    <span>赞</span>
+                                                </div>
+                                                <div>
+                                                    <van-icon name="other-pay" />
+                                                    <span>回复</span>
+                                                </div>
+                                                <div>
+                                                    <van-icon name="fire-o" />
+                                                    <span>分享</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </van-list>
                             </div>
-                        </div>
-                        <div v-show="index==1">音乐</div>
-                        <div v-show="index==2">戏剧</div>
-                        <div v-show="index==3">展览</div>
-                        <div v-show="index==4">亲子</div>
-                        <div v-show="index==5">幕后花絮</div>
-                    </van-tab>
-                </van-tabs> 
-            </div>
+                            <div v-show="index==1">音乐</div>
+                            <div v-show="index==2">戏剧</div>
+                            <div v-show="index==3">展览</div>
+                            <div v-show="index==4">亲子</div>
+                            <div v-show="index==5">幕后花絮</div>
+                        </van-tab>
+                    </van-tabs> 
+                </div>
+            </van-pull-refresh>
         </div>
     </div>
     
 </template>
 <script>
+import { Toast } from 'vant';
 import img from '../../assets/img/组 17.png'
 import img1 from '../../assets/img/组 23.png'
 import img2 from '../../assets/img/组 24.png'
@@ -124,6 +130,11 @@ export default {
                 }
             ],
             active: 0,
+            count: 0,
+            isLoading: false,
+            list: [],
+            loading: false,
+            finished: false,
             img: img,
             img1: img1,
             img2: img2,
@@ -153,6 +164,30 @@ export default {
     methods: {
         onTab(i) {
             this.isIndex = i;
+        },
+        onRefresh() {
+            setTimeout(() => {
+                Toast('刷新成功');
+                this.isLoading = false;
+                this.count++;
+            }, 1000);
+        },
+        onLoad() {
+            // 异步更新数据
+            // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+            setTimeout(() => {
+                for (let i = 0; i < 10; i++) {
+                    this.list.push(this.list.length + 1);
+                }
+
+                // 加载状态结束
+                this.loading = false;
+
+                // 数据全部加载完成
+                if (this.list.length >= 40) {
+                    this.finished = true;
+                }
+            }, 1000);
         },
         toDailyReward() {
             this.$router.push('/dailyreward');
@@ -257,6 +292,9 @@ export default {
     // 全部
     .quanbu-wrap{
         width: 100%;
+        .van-list{
+            background: #eee;
+        }
         // 图片滑动
         .huadong-wrap{
             width: 100%;
