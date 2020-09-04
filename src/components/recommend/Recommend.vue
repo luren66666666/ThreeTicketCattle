@@ -69,6 +69,8 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
+import {getShiYanShuJu} from '../../utils/api'
 import ZooImg1 from '../../assets/images/票牛-推荐/组 3.png'
 import ZooImg2 from '../../assets/images/票牛-推荐/组 4.png'
 import ZooImg3 from '../../assets/images/票牛-推荐/组 4(1).png'
@@ -98,7 +100,16 @@ export default {
                 id:'333333'
             },],
         }
-    }
+    },
+    methods: {
+        // async getInfo(){
+        //     const list   = await getShiYanShuJu()
+        //     console.log(list);
+        // }
+    },
+    mounted() {
+        // this.getInfo();
+    },
 }
 </script>
 <style lang="scss">
