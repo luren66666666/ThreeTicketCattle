@@ -107,6 +107,11 @@ Vue.use(RadioGroup) //单选框
 Vue.use(Radio) //单选框
 Vue.use(List); //列表
 import './assets/sass/vant.scss';
+import './assets/style/dailyReward.scss';
+
+
+
+
 
 new Vue({
     router,
