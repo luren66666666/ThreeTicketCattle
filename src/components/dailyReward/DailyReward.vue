@@ -11,7 +11,7 @@
         <div class="daily-reward_task">
             <div class="daily-reward_task_word">
                 <i>做任务领奖励</i>
-                <span>活动规则</span>
+                <span @click="toAcitivity">活动规则</span>
             </div>
 
             <div class="progress_bar">
@@ -119,7 +119,7 @@
 
         <!-- ------------------------------------------- -->
         <div class="issueHeader"><span>发表圈圈</span><button @click="fabu">发布</button></div>
-        <textarea  placeholder="写几句感想吧~" style="font-size:14px;width:100%;height:150px;border:none"
+        <textarea  placeholder="写几句感想吧~" style="font-size:14px;width:100%;height:150px;border:none;text-indent: 10px;"
         v-model=" message "
         ></textarea>
         </van-popup>
@@ -220,6 +220,9 @@ export default {
         fabu() {
             this.$toast.success('发布成功')
             this.message = ''
+        },
+        toAcitivity() {
+            this.$router.push('/activityRules')
         }
     },
     computed: {
@@ -232,7 +235,7 @@ export default {
 </script>
 
 
-<style lang="scss" >
+<style lang="scss" scoped>
 @import '@/assets/style/dailyReward.scss';
     .daily-reward{
         position: fixed;
@@ -247,6 +250,7 @@ export default {
         align-items: center;
         overflow: auto;
         .daily-reward-van-nav-bar__title{
+            color: #999999;
             width: 100%;
             font-size: 16px;
             margin-top: 10px;

@@ -60,7 +60,7 @@
                     <span class="span5">239</span>/张
                 </span>
             </div>
-            <img src="../../assets/images/票牛-立即购票/圆角矩形 2.png" alt="" class="img1">
+            <img src="../../assets/images/票牛-立即购票/圆角矩形 1.png" alt="" class="img1">
             <span class="span6">确认</span>
             
         </div>

@@ -18,13 +18,19 @@
         :style="{ height: '212px' }"
         />
         <!-- 演出 -->
-        <van-tabs v-model="active" animated title-active-color="#E62F5D"
-        title-inactive-color="#000">
+        <van-tabs v-model="active" animated title-active-color="#E62F5D" 
+        title-inactive-color="#000" sticky  swipeable >
             <van-tab v-for="(item,index) in classification" :title="item" :key="index" 
-        class="calendar-van-tab"
+        class="calendar-van-tab" 
         >
                 <ul class="calendarUl">
-                    <li v-for="index in 10" :key="index">
+                    <van-list
+                    v-model="loading"
+                    :finished="finished"
+                    finished-text="没有更多了"
+                    @load="onLoad"
+                    >
+                    <li v-for="index in list" :key="index">
                         <div class="imgbox">
                             <img :src="img08" alt="">
                         </div>
@@ -42,6 +48,7 @@
                             
                         </div>
                     </li>
+                    </van-list>
                 </ul>
             </van-tab>
         </van-tabs>
@@ -54,20 +61,49 @@ export default {
         onClickLeft() {
             this.$router.go(-1)
         },
-        
+        scroll1() {
+            if(this.scrollTop > 50) {
+                this.distance = 50
+            }
+            if(this.scrollTop <=50) {
+                this.distance = -50
+            }
+        },
+        onLoad() {
+        // 异步更新数据
+        // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+            setTimeout(() => {
+                for (let i = 0; i < 10; i++) {
+                this.list.push(this.list.length + 1);
+                }
+
+                // 加载状态结束
+                this.loading = false;
+
+                // 数据全部加载完成
+                if (this.list.length >= 30) {
+                this.finished = true;
+                }
+            }, 1000);
+        },
     },
+    
     data() {
         return {
             classification:['全部','演唱会','旅游玩乐','话剧歌剧','休闲展览','体育赛事','音乐会','儿童亲子','戏曲综艺','舞蹈芭蕾','潮生活'],
             active:0,
             img08:img08,
+            distance:0,
+            list: [],
+            loading: false,
+            finished: false,
         }
         
     },
     
 }
 </script>
-<style lang="scss" >
+<style lang="scss" scoped>
     @import '@/assets/style/dailyReward.scss';
     .calendar-warp{
         position: fixed;
@@ -83,7 +119,7 @@ export default {
             display: flex;
             flex-direction: column;
             align-items: center;
-
+            
             li{
                 width: 350px;
                 height: 150px;

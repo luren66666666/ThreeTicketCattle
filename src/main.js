@@ -58,7 +58,8 @@ import {
     Form,
     NoticeBar,
     RadioGroup,
-    Radio
+    Radio,
+    List
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -104,8 +105,9 @@ Vue.use(Form); //表单
 Vue.use(NoticeBar) //通知栏
 Vue.use(RadioGroup) //单选框
 Vue.use(Radio) //单选框
+Vue.use(List) //列表
+import './assets/style/dailyReward.scss';
 
-// import './assets/style/dailyReward.scss';
 
 
 
