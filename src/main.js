@@ -47,7 +47,10 @@ import {
     Divider,
     GoodsAction,
     GoodsActionIcon,
-    GoodsActionButton
+    GoodsActionButton,
+    Field,
+    Checkbox,
+    CheckboxGroup
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -82,6 +85,9 @@ Vue.use(Divider) //分割线  显示文本
 Vue.use(GoodsAction) //GoodsAction 商品导航
 Vue.use(GoodsActionIcon) //GoodsAction 商品导航
 Vue.use(GoodsActionButton) //GoodsAction 商品导航
+Vue.use(Field) //输入框
+Vue.use(Checkbox) //复选框
+Vue.use(CheckboxGroup) //复选框
     // import './assets/style/dailyReward.scss';
 
 
