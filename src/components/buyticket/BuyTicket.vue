@@ -9,7 +9,7 @@
             </van-nav-bar>
         </div>
         <div class="top-title2" v-else>
-            <van-nav-bar title="" left-text="" left-arrow fixed placeholder>
+            <van-nav-bar title="" left-text="" left-arrow fixed placeholder @click-left="goBack" >
                 <template #right>
                     <van-icon name="cluster-o" size="18" />
                 </template>
