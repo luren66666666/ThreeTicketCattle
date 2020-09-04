@@ -11,39 +11,40 @@
         <div class="divtime">
             <span>2020年09月18日 周五 20:30</span>
         </div>
-        <div class="divtime"></div>
-        <div class="divtime"></div>
+        <div class="divtime">
+            <span>2020年09月20日 周天 10:30</span>
+        </div>
         <p class="ppiao">选择场次</p>
         <div class="divpiaobox">
-            <div class="divpiao" v-for="(value,index) in 6" :key="index" @click.stop="img2box">
-                <span>100早鸟票</span>
+            <div class="divpiao" v-for="(value,index) in priceArr" :key="index" @click="divpiaoclick(index)" :class="{colorActive:priceflagindex===index}">
+                <span>{{value.price}}{{value.title}}</span>
             </div>
             <van-cell is-link @click="showPopup" v-show="false">展示弹出层</van-cell>
             <van-popup v-model="show" position="bottom" :style="{ height: '45%' }">
                 <div class="imgpiao">
                     <img src="../../assets/images/票牛-立即购票/矩形 11.png" alt="" class="img1">
-                    <span class="span1">100早鸟票</span>
+                    <span class="span1">{{priceArr[priceflagindex].price}}{{priceArr[priceflagindex].title}}</span>
                     <span class="span2">×</span>
                 </div>
                 <div class="boxquyu">
                     <img src="../../assets/images/票牛-立即购票/矩形 1 拷贝 3.png" alt="" class="img2">
                     <span class="span3">区域随机</span>
-                    <span class="span4">仅剩<span class="span5">6</span>张</span>
+                    <span class="span4">仅剩<span class="span5">{{remainingquantity}}</span>张</span>
                 </div>
                 <span class="span6">已经到底了</span>
                 <div class="footdiv">
                     <span class="span1">选择数量</span>
                     <span class="span2">3张以内保证连坐</span>
-                    <img src="../../assets/images/票牛-立即购票/矩形 8.png" alt="" class="img1">
-                    <span class="span3">1</span>
-                    <img src="../../assets/images/票牛-立即购票/矩形 8 拷贝 2.png" alt="" class="img2">
+                    <img src="../../assets/images/票牛-立即购票/矩形 8.png" alt="" class="img1" :class="{imgopacity:totalquantity===1}" @click="numsubtract">
+                    <span class="span3">{{totalquantity}}</span>
+                    <img src="../../assets/images/票牛-立即购票/矩形 8 拷贝 2.png" alt="" class="img2" :class="{imgopacity:totalquantity>=remainingquantity}" @click="numadd">
                 </div>
             </van-popup>
         </div>
 
         <div class="img2box" @click="img2box">
             <img src="../../assets/images/票牛-立即购票/矩形 3.png" alt="" class="img2" >
-            <span class="span7">已选：区域随机<span>1张</span></span>
+            <span class="span7">已选：区域随机<span>{{totalquantity}}张</span></span>
             <span class="span8">选择数量</span>
             <van-icon name="arrow" />
         </div>
@@ -52,17 +53,18 @@
         <div class="boxfoot">
             <div class="title">
                 <span class="span1">合计：</span>
-                <span class="span2">239</span>
+                <span class="span2">{{totalprice}}</span>
                 <span class="span3">元</span>
             </div>
             <div class="price">
                 <span class="span4">
-                    <span class="span5">239</span>/张
+                    <span class="span5">{{priceArr[priceflagindex].price}}</span>/张
                 </span>
             </div>
-            <img src="../../assets/images/票牛-立即购票/圆角矩形 2.png" alt="" class="img1">
-            <span class="span6">确认</span>
-            
+            <div class="boxaffirm" @click="boxaffirmclick">
+                <img src="../../assets/images/票牛-立即购票/圆角矩形 2.png" alt="" class="img1">
+                <span class="span6">确认</span>
+            </div>
         </div>
     </div>
 </template>
@@ -74,13 +76,54 @@ export default {
         },
         img2box(){
             this.showPopup();
+        },
+        divpiaoclick(index){
+            this.priceflagindex = index;
+            this.showPopup();
+        },
+        boxaffirmclick(){//点击确认，直接跳转页面
+            this.$router.push('/confirmorder');
+        },
+        numsubtract(){//总数量减1
+            if(this.totalquantity<=1){
+                return
+            }
+            this.totalquantity--;
+        },
+        numadd(){//总数量加1
+            if(this.totalquantity>=this.remainingquantity){
+                return 
+            }
+            this.totalquantity++;
         }
     },
     data(){
-        return {
-             show: false,
+        return {       
+            totalquantity : 1,//总数量
+            remainingquantity : 9,//剩余数量
+            priceflagindex:0,
+            show: false,//弹出框是否弹出
+            priceArr:[
+                {
+                    price:100,
+                    title:'早鸟票'
+                },
+                {
+                    price:200,
+                    title:'中鸟票'
+                },
+                {
+                    price:300,
+                    title:'晚鸟票'
+                },
+            ]
         }
-    }
+    },
+    computed: {
+        totalprice(){
+            return this.priceArr[this.priceflagindex].price * this.totalquantity
+        }
+    },
 }
 </script>
 <style lang="scss">
@@ -157,7 +200,7 @@ export default {
             display: flex;
             justify-content: space-between;
             flex-wrap:wrap ;
-                .divpiao{
+            .divpiao{
                 width: 167px;
                 height: 38px;
                 background-color: #F8F8F8;
@@ -171,6 +214,9 @@ export default {
                     color: #141414;
                     margin-left: 11px;
                 }
+            }
+            .colorActive{
+                background-color: #FFF1F4;
             }
             .van-popup{
                 .imgpiao{
@@ -263,7 +309,7 @@ export default {
                         position: absolute;
                         left: 275px;
                         top: 10px;
-                        opacity: 0.5;
+                        
                     }
                     .span3{
                         position: absolute;
@@ -280,6 +326,9 @@ export default {
                         left: 339px;
                         top: 10px;
                     }  
+                    .imgopacity{
+                        opacity: 0.5;
+                    }
                 }
             }
         }
@@ -363,21 +412,25 @@ export default {
                 font-family: Light;
                 color: #909090;
             }
-            .img1{
+            .boxaffirm{
                 width: 95px;
                 height: 37px;
                 position: absolute;
                 right: 11px;
                 top: 3px;
-            }
-            .span6{
-                position: absolute;
-                right: 44px;
-                top: 11px;
-                font-size: 15px;
-                font-family: Regular;
-                color: #FFFEFE;
-            }
+                .img1{
+                    width: 100%;
+                    height: 100%;
+                }
+                .span6{
+                    position: absolute;
+                    left: 32.5px;
+                    top: 8px;
+                    font-size: 15px;
+                    font-family: Regular;
+                    color: #FFFEFE;
+                }
+            }          
         }
     }
 </style>
