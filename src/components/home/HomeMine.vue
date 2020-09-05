@@ -75,9 +75,9 @@
                         <span>尊享礼包+特权</span>
                     </div>
                 </div>
-                <div class="right">
+                <div class="right"  @click="vip">
                     <img src="../../assets/MineImg/组 18 拷贝@2x.png" alt="">
-                    <div @click="vip">
+                    <div>
                         <span>圈圈会员</span>
                         <span>达人专属</span>
                     </div>
