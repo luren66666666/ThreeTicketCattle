@@ -158,6 +158,9 @@ export default {
             .van-picker__toolbar {
                 display: none;
             }
+            &::v-deep .van-picker__toolbar {
+                display: none;
+            }
         }
     }
 </style>
