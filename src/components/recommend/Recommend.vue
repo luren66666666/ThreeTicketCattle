@@ -22,7 +22,6 @@
                 <span class="span1">释放压力</span>
                 <span class="span2">热展一网打尽</span>
             </div>
-
             <!-- 两个列表 -->
             <div class="boxesli" v-for="(value,index) in twoListArr" :key="index">
                 <p>{{value.title}}</p>

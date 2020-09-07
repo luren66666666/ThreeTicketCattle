@@ -9,7 +9,7 @@
 <template>
   <div class="center-warp">
     <van-grid :border="false"  column-num=5>
-        <van-grid-item   v-for="(item,index) in gridList" :text="item.text"  :class="item.icon" :key="index" />
+        <van-grid-item   v-for="(item,index) in gridList" :text="item.text" @click="jumpClassify" :class="item.icon" :key="index" />
     </van-grid>
     <div class="operating-position">
          <div><img src="../../assets/index-img/组 5.png" alt=""></div>
@@ -87,6 +87,9 @@ export default {
   methods: {
     toServiceAssurance() {
       this.$router.push("/serviceassurance");
+    },
+    jumpClassify(){
+      this.$router.push("/indexClassify")
     }
   }
 };

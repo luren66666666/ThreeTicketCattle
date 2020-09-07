@@ -60,6 +60,12 @@ const routes = [
             },
         ]
     },
+    // 首页跳转分类
+    {
+        path: '/indexClassify',
+        component: () =>
+            import ('../components/index/IndexClassify.vue')
+    },
     //服务保障（导航跳转）
     {
         path: '/serviceassurance',
