@@ -9,7 +9,7 @@
             </van-nav-bar>
         </div>
         <div class="top-title2" v-else>
-            <van-nav-bar title="" left-text="" left-arrow fixed placeholder>
+            <van-nav-bar title="" left-text="" left-arrow fixed placeholder @click-left="goBack" >
                 <template #right>
                     <van-icon name="cluster-o" size="18" />
                 </template>
@@ -45,8 +45,29 @@
             <div class="section-top">
                 <p>2020.08.22  16:30</p>
                 <h2 class="address"><span>金华磐安花溪风景区</span> <van-icon name="location-o"  /></h2>
-                <h3><span>购票须知</span> <van-icon name="arrow" /></h3>
-                <h3><span v-for="(item,index) in baozhang" :key="index">{{item}}</span><van-icon name="arrow" /></h3>
+                <h3 @click="showDetailInfo"><span>购票须知</span> <van-icon name="arrow" /></h3>
+                <van-popup v-model="show1" position="bottom"  :style="{ height: '60%' }">
+                    <van-tabs @click="onClick">
+                        <van-tab title="入场凭证">
+                             <van-cell  title="电子票" icon="passed" label="本项目支持凭电子票入场"  />
+                        </van-tab>
+                        <van-tab title="观影须知">
+                            <van-cell center title="限购说明" icon="passed" label="每单限购六张"  />
+                            <van-cell center title="座位类型" icon="passed" label="请按门票对应座位，有序对号入座"  />
+                            <van-cell center title="儿童入场提示" icon="passed" label="1.2以上凭票入场，1.2以下谢绝入场"  />
+                            <van-cell center title="禁止携带物品" icon="passed" label="食品、饮料、相机、充电宝、打火机等"  />
+                        </van-tab>
+                    </van-tabs>
+                    <span class="cancle" @click="onCancel1">关闭</span>
+                </van-popup>
+                <h3 @click="platformSecurity"><span v-for="(item,index) in baozhang" :key="index">{{item}}</span><van-icon name="arrow" /></h3>
+                <van-popup v-model="show" position="bottom"  :style="{ height: '60%' }">
+                    <h4>平台保障</h4>
+                    <van-cell center title="无票赔付" icon="passed" label="无票就赔，最高退一赔一" is-link />
+                    <van-cell center title="出票保真" icon="passed" label="平台审核担保，假一赔三" is-link />
+                    <van-cell center title="配送保障" icon="passed" label="多种取票方式，安全送达" is-link />
+                    <span class="cancle" @click="onCancel">关闭</span>
+                </van-popup>
                 <div class="address-box">
                     <div class="address-move">
                         <div class="address-item " v-for="(item,index) in addInfo" :key="index" :class="{active:index===isActive}" @click="isActive=index">
@@ -70,6 +91,9 @@ import ToBuy from './ToBuy';
 export default {
     data() {
         return {
+            show1:false,
+            show:false,
+            actions: [],
             title:'「痛仰/霍尊」中国·磐安2020氧 气山水音乐节',
             pingfen:'暂无评分',
             showInfo:'408',
@@ -109,6 +133,21 @@ export default {
          } ,
         goBack(){
             this.$router.go(-1);
+        },
+        platformSecurity(){
+            this.show = true;
+        },
+        onCancel(){
+            this.show = false;
+        },
+        showDetailInfo(){
+            this.show1 = true;
+        },
+        onCancel1(){
+            this.show1 = false;
+        },
+        onClick(name, title){
+
         }
      }
 }
@@ -285,6 +324,31 @@ export default {
                     height: 10px;
                     color: #999797;
                     line-height: 14px;
+                }
+            }
+            .van-popup{
+                padding: 14px;
+                h4{
+                    font-family: Bold;
+                    font-size: 16px;
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: center;
+                }
+                .van-icon-passed{
+                    color: #FF2662;
+                }
+                span.cancle{
+                    width: 361px;
+                    height: 44px;
+                    font-size: 14px;
+                    font-family: Medium;
+                    line-height: 44px;
+                    text-align: center;
+                    position: fixed;
+                    bottom: 0;
+                    left: 7px;
+                    border-top: 1px solid #ccc;
                 }
             }
             .address{
