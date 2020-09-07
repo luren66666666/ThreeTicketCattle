@@ -60,6 +60,9 @@ import {
     RadioGroup,
     Radio,
     List,
+    Switch,
+    Overlay,
+    Area
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -106,6 +109,9 @@ Vue.use(NoticeBar) //通知栏
 Vue.use(RadioGroup) //单选框
 Vue.use(Radio) //单选框
 Vue.use(List); //列表
+Vue.use(Switch); //开关
+Vue.use(Overlay); //遮罩层
+Vue.use(Area);
 import './assets/sass/vant.scss';
 import './assets/style/dailyReward.scss';
 
