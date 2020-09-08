@@ -1,18 +1,15 @@
 <template>
     <div class="Buy-tickets-immediately" >
         <!-- 顶部导航栏 -->
-        <van-nav-bar title="立即购票"  left-arrow fixed :placeholder="true"  >
+        <van-nav-bar title="立即购票"  left-arrow fixed :placeholder="true" @click-left="onClickLeft" >
             <template #right>
                 <van-icon name="warning-o" size="18" />
             </template>
         </van-nav-bar>
 
         <p class="ptime">选择场次</p>
-        <div class="divtime">
-            <span>2020年09月18日 周五 20:30</span>
-        </div>
-        <div class="divtime">
-            <span>2020年09月20日 周天 10:30</span>
+        <div class="divtime" v-for="(value,index) in playTime" :key="value" :class="{colorDivtime:playTimeIndex===index}" @click="divtimeClick(index)">
+            <span>{{value}}</span>
         </div>
         <p class="ppiao">选择场次</p>
         <div class="divpiaobox">
@@ -71,6 +68,12 @@
 <script>
 export default {
     methods: {
+        divtimeClick(index){
+            this.playTimeIndex = index;
+        },
+        onClickLeft(){
+            this.$router.go(-1);
+        },
         showPopup() {
             this.show = true;
         },
@@ -99,11 +102,12 @@ export default {
     },
     data(){
         return {       
+            playTimeIndex: 0,
             totalquantity : 1,//总数量
             remainingquantity : 9,//剩余数量
             priceflagindex:0,
             show: false,//弹出框是否弹出
-            priceArr:[
+            priceArr:[//票价类型
                 {
                     price:100,
                     title:'早鸟票'
@@ -116,6 +120,11 @@ export default {
                     price:300,
                     title:'晚鸟票'
                 },
+            ],
+            playTime:[//播放时间
+                '2020年09月18日 周五 20:30',
+                '2020年09月20日 周天 10:30',
+                '2020年09月07日 周一 11:30'
             ]
         }
     },
@@ -173,17 +182,21 @@ export default {
         .divtime{
             width: 346px;
             height: 38px;
-            background-color: #FFF1F4;
             margin-left: 15px;
             margin-top: 12px;
             display: flex;
+            color: #141414;
             align-items: center;
+            background-color: #F8F8F8;
             span{
                 font-size: 14px;
-                font-family: Medium;
-                color: #FF2661;
+                font-family: Medium;              
                 margin-left: 11px;
             }
+        }
+        .colorDivtime{
+            background-color: #FFF1F4;
+            color: #FF2661;
         }
         .ppiao{
             font-size: 14px;
@@ -204,18 +217,18 @@ export default {
                 width: 167px;
                 height: 38px;
                 background-color: #F8F8F8;
-                // margin-left: 15px;
+                color: #141414;
                 margin-bottom: 12px;
                 display: flex;
                 align-items: center;
                 span{
                     font-size: 14px;
-                    font-family: Medium;
-                    color: #141414;
+                    font-family: Medium;                   
                     margin-left: 11px;
                 }
             }
             .colorActive{
+                color: #FF2661;
                 background-color: #FFF1F4;
             }
             .van-popup{

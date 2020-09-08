@@ -1,5 +1,5 @@
 <template>
-    <div class="recommend-recommend">
+    <div class="recommend-recommend"> 
         <!-- 顶部导航栏 -->
         <van-nav-bar title="艳阳高照 组团出门浪"  left-arrow :border="false" @click-left="onClickLeft">
             <template #right>
@@ -63,8 +63,6 @@
                 <span class="span4"><span class="span5">{{value.price}}</span>元起</span>
             </div>
         </div>
-
-        
     </div>
 </template>
 <script>
