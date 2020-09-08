@@ -112,6 +112,7 @@ Vue.use(List); //列表
 Vue.use(Switch); //开关
 Vue.use(Overlay); //遮罩层
 Vue.use(Area);
+
 import './assets/sass/vant.scss';
 import './assets/style/dailyReward.scss';
 
