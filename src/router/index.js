@@ -66,6 +66,12 @@ const routes = [
         component: () =>
             import ('../components/index/IndexClassify.vue')
     },
+    //首页跳转show详情
+    {
+        path: '/showdetails',
+        component: () =>
+            import ('../components/showdetails/ShowDetails.vue')
+    },
     //服务保障（导航跳转）
     {
         path: '/serviceassurance',
