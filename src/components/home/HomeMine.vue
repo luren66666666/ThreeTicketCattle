@@ -39,7 +39,7 @@
         </header>
 
         <!-- 订单栏 -->
-        <van-cell title="我的订单">
+        <van-cell title="我的订单" @click="myorder">
             <template #right-icon>
                 <img src="../../assets/MineImg/形状 7@2x.png" alt="">
             </template>
@@ -75,9 +75,9 @@
                         <span>尊享礼包+特权</span>
                     </div>
                 </div>
-                <div class="right">
+                <div class="right"  @click="vip">
                     <img src="../../assets/MineImg/组 18 拷贝@2x.png" alt="">
-                    <div @click="vip">
+                    <div>
                         <span>圈圈会员</span>
                         <span>达人专属</span>
                     </div>
@@ -87,7 +87,7 @@
         </div>
 
         <!--列表信息单元格  -->
-        <section v-for="(item,index) in megList" :key="index">
+        <section v-for="(item,index) in megList" :key="index" @click="cellgo(item.path)" >
             <van-cell :title="item.content" >
                 <template #right-icon>
                     <img src="../../assets/MineImg/形状 7@2x.png" alt="">
@@ -148,7 +148,7 @@ export default {
             megList:[
                 {
                     content:'地址管理',
-                    path:''
+                    path:'/threetheticketimmediately'
                 },
                 {
                     content:'帮助与客服',
@@ -176,6 +176,12 @@ export default {
     methods: {
         vip() {
             this.$router.push('/circleclub')
+        },
+        myorder() {
+            this.$router.push('/myorder')
+        },
+        cellgo(to) {
+            this.$router.push(to);
         }
     },
 }

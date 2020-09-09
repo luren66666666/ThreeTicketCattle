@@ -180,6 +180,48 @@ const routes = [
         component: () =>
             import ('../components/payorder/PayOrder.vue'),
     },
+    //未标题-5（编辑资料）（导航跳转）
+    {
+        path: '/editdata',
+        component: () =>
+            import ('../components/editdata/EditData.vue'),
+    },
+    //03（霸王票0元任性看演出）（导航跳转）
+    {
+        path: '/noyuanfortheshow',
+        component: () =>
+            import ('../components/noyuanfortheshow/NoYuanForTheShow.vue'),
+    },
+    //未标题-6-恢复的（个人主页）（导航跳转）
+    {
+        path: '/personalhomepage',
+        component: () =>
+            import ('../components/personalhomepage/PersonalHomepage.vue'),
+    },
+    //01(十分现场)（导航跳转）
+    {
+        path: '/thescene',
+        component: () =>
+            import ('../components/thescene/TheScene.vue'),
+    },
+    //我的订单（导航跳转）
+    {
+        path: '/myorder',
+        component: () =>
+            import ('../components/myorder/MyOrder.vue'),
+    },
+    //设置界面（导航跳转）
+    {
+        path: '/set',
+        component: () =>
+            import ('../components/set/Set.vue'),
+    },
+    //未标题-1（收货地址）（导航跳转）
+    {
+        path: '/addressadministration',
+        component: () =>
+            import ('../components/addressadministration/AddressAdministration.vue'),
+    },
     //404路由
     {
         path: '*',

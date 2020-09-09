@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-09-03 17:07:33
- * @LastEditTime: 2020-09-04 11:26:26
+ * @LastEditTime: 2020-09-04 11:53:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\freeprizedraw\FreePrizeDraw.vue
@@ -303,6 +303,8 @@ export default {
             font-size: 15px;
             font-weight: bold;
             margin-top: 30px;
+            position: fixed;
+            bottom: 0;
         }
     }
 }

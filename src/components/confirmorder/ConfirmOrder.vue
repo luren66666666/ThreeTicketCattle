@@ -106,8 +106,20 @@
                 </template>
             </van-field>
             已阅读并同意<b style="color:#3D85E9">[交易服务协议]</b>
-            
             </p>
+
+            <!-- -------底部----------- -->
+            <div class="confirm-footer">
+                <div class="confirm-warp">
+                    <span class="confirm-price">
+                    <b>251</b>元
+                    </span>
+                    <p class="confirm-footer-right">
+                        <span class="confirm-minxi">明细</span>
+                        <span class="confirm-btn" @click="toPayOrder">确认下单</span>
+                    </p>
+                </div>
+            </div>
          </div>
 </template>
 
@@ -152,6 +164,9 @@ export default {
         onExchange(code) {
         this.coupons.push(coupon);
         },
+        toPayOrder() {
+            this.$router.push('/payorder')
+        }
     },
     
     data() {
@@ -162,13 +177,13 @@ export default {
             coupons: [coupon],
             disabledCoupons: [coupon],
             showList:false,
-            checkbox: false,
+            checkbox: true,
         }
     },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     @import '@/assets/style/dailyReward.scss';
     
     .confirmorder_warp{
@@ -241,6 +256,10 @@ export default {
                         font-size: 16px;
                         font-weight: 700;
                         color: #000000;
+                        width: 240px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                     span{
                         margin-top: 5px;
@@ -352,7 +371,52 @@ export default {
             font-size: 12px;
             align-items: center;
         }
+        .confirm-footer{
+            width: 100%;
+            height: 75px;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            background: #ffffff;
+            font-size: 12px;
+           
+            .confirm-warp{
+                
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .confirm-price {
+                    margin-left: 10px;
+                   
+                b{
+                    color: #FF2560;
+                    font-size: 18px;
+                    }
+                }
+                .confirm-footer-right{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 0px;
+                    .confirm-minxi{
+                        color: #0F0F0F;
+                        margin-right: 26px;
+                    }
+                    .confirm-btn{
+                        width: 138px;
+                        height: 44px;
+                        background: #FF2661;
+                        color: #ffffff;
+                        text-align: center;
+                        line-height: 44px;
+                        font-size: 16px;
+                    }
+                }
+            }
+            
+        }
     }
+    
     .value-right{
             font-size: 12px;
             color: #FF2963;
@@ -369,4 +433,4 @@ export default {
         height: 20px;
         padding: 0px;
     }
-</style>
+</style>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

@@ -1,6 +1,6 @@
 <template>
     <div class="showdetails-container">
-        <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder>
+        <van-nav-bar title="演出详情" left-text="" left-arrow fixed placeholder @click-left="goBack">
             <template #right>
                 <van-icon name="cluster-o" size="18" />
             </template>
@@ -41,6 +41,9 @@ export default {
     methods: {
         showMoreInfo(){
             this.showmore = !this.showmore;
+        },
+        goBack(){
+            this.$router.go(-1);
         }
     },
 }

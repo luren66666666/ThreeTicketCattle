@@ -1,7 +1,7 @@
 <template>
-    <div class="recommend-recommend">
+    <div class="recommend-recommend"> 
         <!-- 顶部导航栏 -->
-        <van-nav-bar title="艳阳高照 组团出门浪"  left-arrow :border="false">
+        <van-nav-bar title="艳阳高照 组团出门浪"  left-arrow :border="false" @click-left="onClickLeft">
             <template #right>
                 <van-icon name="cluster-o" size="18" />
             </template>
@@ -23,19 +23,19 @@
                 <span class="span2">热展一网打尽</span>
             </div>
             <!-- 两个列表 -->
-            <div class="boxesli" v-for="(value,index) in 2" :key="index">
-                <p>EPSON teamLab无界美啊手动阀</p>
-                <span class="span1">2020.03.06-08.31</span>
-                <span class="span2">TeamLab Borderl ess 上海 无界美术馆</span>
-                <img src="../../assets/images/票牛-推荐/图层 3.png" alt="">
+            <div class="boxesli" v-for="(value,index) in twoListArr" :key="index">
+                <p>{{value.title}}</p>
+                <span class="span1">{{value.time}}</span>
+                <span class="span2">{{value.describe}}</span>
+                <img :src="value.img" alt="">
                 <div class="price">
-                    <div class="priceRed">239</div>
+                    <div class="priceRed">{{value.price}}</div>
                     <span class="spanPrice">元起</span>
                 </div>
                 <div class="title">
-                    <div class="titleText">必打卡的展</div>
+                    <div class="titleText">{{value.sign}}</div>
                 </div>
-                <span class="span3">必打卡的展</span>
+                <span class="span3">{{value.sign}}</span>
             </div>
 
             <!-- 释放压力 +图片-->
@@ -63,13 +63,13 @@
                 <span class="span4"><span class="span5">{{value.price}}</span>元起</span>
             </div>
         </div>
-
-        
     </div>
 </template>
 <script>
-import axios from 'axios';
-import {getShiYanShuJu} from '../../utils/api'
+import TwoListImg1 from '../../assets/images/票牛-推荐/图层 3.png'
+import TwoListImg2 from '../../assets/images/票牛-推荐/组 6.png'
+// import axios from 'axios';
+// import {getShiYanShuJu} from '../../utils/api'
 import ZooImg1 from '../../assets/images/票牛-推荐/组 3.png'
 import ZooImg2 from '../../assets/images/票牛-推荐/组 4.png'
 import ZooImg3 from '../../assets/images/票牛-推荐/组 4(1).png'
@@ -98,6 +98,24 @@ export default {
                 price:49,
                 id:'333333'
             },],
+            twoListArr:[
+                {
+                    img:TwoListImg1,
+                    title:'EPSON teamLab无界美啊手动阀',
+                    time:'2020.03.06-08.31',
+                    describe:'TeamLab Borderl ess 上海 无界美术馆',
+                    price:'239',
+                    sign:'必打卡的展',
+                },
+                {
+                    img:TwoListImg2,
+                    title:'【恢复营业】不可思议减阿萨的过',
+                    time:'2019.04.04-2019.11.13',
+                    describe:'淮海路755号',
+                    price:'58',
+                    sign:'奇葩减压36计',
+                },
+            ]
         }
     },
     methods: {
@@ -105,6 +123,9 @@ export default {
         //     const list   = await getShiYanShuJu()
         //     console.log(list);
         // }
+        onClickLeft(){
+            this.$router.go(-1);
+        }
     },
     mounted() {
         // this.getInfo();
@@ -112,8 +133,13 @@ export default {
 }
 </script>
 <style lang="scss">
-@import '@/assets/style/reset.scss';
+// @import '@/assets/style/reset.scss';
 .recommend-recommend{
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,6 +155,13 @@ export default {
         .van-nav-bar__title{
             font-size: 16px;
             font-family: Bold;
+            margin-left: 115px;
+        }
+        .van-nav-bar__left{
+            margin-left: 18px;
+        }
+        .van-nav-bar__right{
+            margin-right: 22px;
         }
     }
     .ulboxes{

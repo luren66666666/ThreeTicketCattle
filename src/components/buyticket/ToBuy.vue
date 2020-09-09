@@ -2,7 +2,7 @@
     <div class="tobuy-container">
          <van-goods-action safe-area-inset-bottom placeholder>
             <van-goods-action-icon icon="service-o" text="客服" color="#EA5639" />
-            <van-goods-action-button color="#EA5639" type="danger" :text="tit || '立即购票'" />
+            <van-goods-action-button color="#EA5639" type="danger" :text="tit || '立即购票'" @click="buyNow" />
         </van-goods-action>
     </div>
 </template>
@@ -10,7 +10,12 @@
 export default {
     props:{
         tit:String
-    }
+    },
+    methods: {
+        buyNow(){
+            this.$router.push('/theticketimmediately');
+        }
+    },
 }
 </script>
 
