@@ -243,7 +243,15 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        // savedPosition在返回的时候生效
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
 })
 
 export default router

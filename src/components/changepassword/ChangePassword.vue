@@ -1,17 +1,19 @@
 <template>
     <div class="change-passwords">
         <!-- 顶部导航栏 -->
-        <van-nav-bar title="重置密码"  left-arrow :border="false" @click-left="onClickLeft">
+        <van-nav-bar title="修改密码"  left-arrow :border="false" @click-left="onClickLeft">
         </van-nav-bar>
 
 
         <div class="change-passwords-color">
             <div class="text-from">
-                <span class="tel">手机号</span><span></span>
+                <span class="tel">手机号</span><input type="text" class="input-tel">
                 <div class="xian"></div>
-                <span class="code">验证码</span><span></span>
+                <span class="code">验证码</span><input type="text" class="input-code">
+                <div class="shu-xian"></div>
+                <span class="send-code">发送验证码</span>
             </div>
-            <div class="next">
+            <div class="next" @click="nextStep">
                 <span>下一步</span>
             </div>
         </div>
@@ -22,6 +24,9 @@ export default {
     methods: {
         onClickLeft(){
             this.$router.go(-1);
+        },
+        nextStep(){
+            this.$router.push('/resetpasswords');
         }
     },
 }
@@ -73,6 +78,24 @@ export default {
                     left: 15px;
                     top: 14px;
                 }
+                .input-tel{
+                    width: 305px;
+                    color: #000000;
+                    font-size: 12px;
+                    font-family: Regular;
+                    border: none;
+                    position: absolute;
+                    left: 65px;
+                    top: 14px;
+                }
+                .xian{
+                    width: 358px;
+                    height: 1px;
+                    position: absolute;
+                    left: 17px;
+                    top: 38px;
+                    background-color: #D1D1D3;
+                }
                 .code{
                     color: #000000;
                     font-size: 12px;
@@ -81,6 +104,33 @@ export default {
                     left: 14px;
                     top: 53px;
                 }
+                .input-code{
+                    width: 190px;
+                    color: #000000;
+                    font-size: 12px;
+                    font-family: Regular;
+                    border: none;
+                    position: absolute;
+                    left: 65px;
+                    top: 53px;
+                }
+                .shu-xian{
+                    width: 1px;
+                    height: 18px;
+                    background-color: #E1E1E1;
+                    position: absolute;
+                    left: 261px;
+                    top: 52px;
+                }
+                .send-code{
+                    color: #FF094B;
+                    font-size: 12px;
+                    font-family: Regular;
+                    position: absolute;
+                    left: 277px;
+                    top: 53px;
+                }
+
             }
             .next{
                 width: 348px;

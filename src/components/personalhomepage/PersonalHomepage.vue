@@ -15,6 +15,7 @@ export default {
         .personal-homepage-img{
             width: 100%;
             height: 173px;
+            background-color: blue;
         }
     }
 </style>

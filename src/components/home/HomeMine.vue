@@ -202,6 +202,26 @@ export default {
             this.$router.push(url)
         },
     },
+    // activated() {
+    //     console.log(1);
+    // },
+    // deactivated(){
+    //     console.log(2);
+    // },
+    // beforeDestroy(){
+    //     console.log(3);
+    // },
+    // destroyed(){
+    //     console.log(4);
+    // }
+    // activated() {
+    //     console.log(1);
+    //     document.documentElement.scrollTop = sessionStorage.getItem('HomeMine')
+    // },
+    // deactivated() {
+    //     console.log(2);
+    //     sessionStorage.setItem('HomeMine', document.documentElement.scrollTop)
+    // }
 }
 </script>
 

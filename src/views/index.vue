@@ -1,6 +1,10 @@
 <template>
     <div class="Bottom-TAB-bar">
-        <router-view></router-view>
+        <!-- 缓存组件 -->
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
+        
         <van-tabbar v-model="active" active-color="red" inactive-color="#000" route fixed :placeholder="true" >
             <van-tabbar-item :icon="value.icon" :to="value.to" v-for="(value,index) in vanTabberArr" :key="index">{{value.title}}</van-tabbar-item>
         </van-tabbar>

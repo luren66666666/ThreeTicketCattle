@@ -10,7 +10,7 @@
         <section>
             <div class="section-top">
                 <van-cell title="绑定手机号" value="131****5587" />
-                <van-cell title="修改密码" is-link />
+                <van-cell title="修改密码" is-link @click="changePassword"/>
             </div>
             <div class="section-middle">
                 <van-cell center title="照片水印">
@@ -45,6 +45,9 @@ export default {
     methods: {
         onClickLeft(){
             this.$router.go(-1);
+        },
+        changePassword(){
+            this.$router.push('/changepassword');
         }
     },
 }
