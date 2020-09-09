@@ -95,7 +95,6 @@ export default {
         }
         .van-button__text{
             font-size: 17px;
-            font-family: PingFang SC;
             font-weight: 500;
             color: #FF5232;
         }
