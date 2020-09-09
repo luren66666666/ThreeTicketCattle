@@ -160,11 +160,7 @@ export default {
         box-sizing: border-box;
     }
     .vip-club {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0px;
+        width: 100%;
         &::v-deep .van-nav-bar__arrow {
             color:#4F4F49;
         }
@@ -177,11 +173,7 @@ export default {
         }
         // 主内容
         main {
-            position: absolute;
-            top: 38px;
-            right: 0;
-            left: 0;
-            bottom: 0;
+            width: 100%;
             overflow: auto;
             background: #141A26;
             display: flex;
@@ -250,7 +242,7 @@ export default {
             }
             // 声请条件&写内容
             section {
-                padding: 0 15px;
+                padding: 0 14px;
                 margin-top: 38px;
                 display: flex;
                 flex-direction: column;

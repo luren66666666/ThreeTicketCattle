@@ -1,5 +1,5 @@
 <template>
-    <div class="mine">
+    <div class="homemine">
         <!-- 头部个人信息 -->
         <header>
             <!-- 头像 -->
@@ -18,13 +18,13 @@
                     src="https://img.yzcdn.cn/vant/cat.jpeg"
                     v-else
                 />
-                <div class="username">
+                <div class="username" @click="gotoUrl('/register')">
                     <p v-if="token">权志龙</p>
                     <p v-else class="not-log">点击登录</p>
                     <span v-if="token">新手</span>
                     <span v-else class="log-happy">登录更精彩</span>
                 </div>
-                <div class="my-home">
+                <div class="my-home" @click="gotoUrl('/register')">
                     个人主页
                     <img src="../../assets/MineImg/形状 8@2x.png" alt="">
                 </div>
@@ -39,16 +39,13 @@
         </header>
 
         <!-- 订单栏 -->
-        <van-cell title="我的订单" @click="myorder">
+        <van-cell title="我的订单" @click="gotoUrl('/myorder')">
             <template #right-icon>
                 <img src="../../assets/MineImg/形状 7@2x.png" alt="">
             </template>
         </van-cell>
         <van-grid :border="false" icon-size="20px">
-            <van-grid-item :icon="order[0]" text="待付款" />
-            <van-grid-item :icon="order[1]" text="代发货" />
-            <van-grid-item :icon="order[2]" text="待收货" />
-            <van-grid-item :icon="order[3]" text="待评价" />
+            <van-grid-item v-for="(item,index) in order" :key="index" :icon="item.OrderIcon" :text="item.text" @click="myorder(index)" />
         </van-grid>
         <!-- 优惠卷 -->
         <nav class="discount">
@@ -130,7 +127,24 @@ export default {
                     class:'粉丝'
                 }
             ],
-            order:[OrderIcon1,OrderIcon2,OrderIcon3,OrderIcon4],
+            order:[
+                {
+                    OrderIcon:OrderIcon1,
+                    text:"待付款"
+                },
+                {
+                    OrderIcon:OrderIcon2,
+                    text:"代发货"
+                },
+                {
+                    OrderIcon:OrderIcon3,
+                    text:"待收货"
+                },
+                {
+                    OrderIcon:OrderIcon4,
+                    text:"待评价"
+                },
+            ],  
             discount:[
                 {
                     num:'0',
@@ -164,7 +178,7 @@ export default {
                 },
                 {
                     content:'设置',
-                    path:''
+                    path:'/set'
                 },
             ],
             token:''
@@ -177,12 +191,16 @@ export default {
         vip() {
             this.$router.push('/circleclub')
         },
-        myorder() {
-            this.$router.push('/myorder')
+        myorder(val) {
+            this.$router.push({path:'/myorder', query: { order: val }})
+            console.log(val)
         },
         cellgo(to) {
             this.$router.push(to);
-        }
+        },
+        gotoUrl(url) {
+            this.$router.push(url)
+        },
     },
 }
 </script>
@@ -194,17 +212,18 @@ export default {
         box-sizing: border-box;
         font-family: Medium;
     }
-    .mine {
+    .homemine {
         width: 100%;
         display: flex;
         flex-direction:column;
-        align-items: center;
         background: #F2F1F1;
         header {
             width: 100%;
             height: 139px;
             background:url(../../assets/MineImg/headerBg.png) 100% 100% no-repeat;
             color: #fff;
+            display: flex;
+            flex-direction: column;
             .person {
                 height: 51px;
                 margin-top: 18px;
