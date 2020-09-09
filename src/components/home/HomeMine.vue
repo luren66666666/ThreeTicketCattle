@@ -24,7 +24,7 @@
                     <span v-if="token">新手</span>
                     <span v-else class="log-happy">登录更精彩</span>
                 </div>
-                <div class="my-home" @click="gotoUrl('/register')">
+                <div class="my-home" @click="gotoUrl('/personalhomepage')">
                     个人主页
                     <img src="../../assets/MineImg/形状 8@2x.png" alt="">
                 </div>
@@ -162,7 +162,7 @@ export default {
             megList:[
                 {
                     content:'地址管理',
-                    path:'/threetheticketimmediately'
+                    path:'/addressadministration'
                 },
                 {
                     content:'帮助与客服',
