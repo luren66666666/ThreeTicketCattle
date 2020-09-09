@@ -62,7 +62,9 @@ import {
     List,
     Switch,
     Overlay,
-    Area
+    Area,
+    Picker ,
+    DatetimePicker
 } from 'vant';
 
 Vue.use(Button); //Button 按钮
@@ -112,6 +114,8 @@ Vue.use(List); //列表
 Vue.use(Switch); //开关
 Vue.use(Overlay); //遮罩层
 Vue.use(Area);
+Vue.use(Picker); //Picker选择器
+Vue.use(DatetimePicker); //DatetimePicker 时间选择
 
 import './assets/sass/vant.scss';
 import './assets/style/dailyReward.scss';
