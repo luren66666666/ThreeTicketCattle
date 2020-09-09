@@ -180,7 +180,7 @@ const routes = [
         component: () =>
             import ('../components/editdata/EditData.vue'),
     },
-    //03和未标题-1（霸王票0元任性看演出）（导航跳转）
+    //03（霸王票0元任性看演出）（导航跳转）
     {
         path: '/noyuanfortheshow',
         component: () =>
@@ -209,6 +209,12 @@ const routes = [
         path: '/set',
         component: () =>
             import ('../components/set/Set.vue'),
+    },
+    //未标题-1（收货地址）（导航跳转）
+    {
+        path: '/addressadministration',
+        component: () =>
+            import ('../components/addressadministration/AddressAdministration.vue'),
     },
     //404路由
     {

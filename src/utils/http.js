@@ -47,11 +47,11 @@ const http = {
                 }) // 相应的拦截
                 .then(res => {
                     //如果status='0'，则视为成功，返回对应数据
-                    if (res.status === '0') {
-                        resolve(res)
-                    } else {
-                        Toast(res.msg)
-                    }
+                    // if (res.status === '0') {
+                    resolve(res);
+                    // } else {
+                    // Toast(res.msg)
+                    // }
                 })
                 .catch(err => {
                     // console.log(err.message)
@@ -65,11 +65,11 @@ const http = {
             // 引入一个qs的包
             instance.post(url, qs.stringify(params))
                 .then((res) => {
-                    if (res.status === '0') {
-                        resolve(res)
-                    } else {
-                        Toast(res.msg)
-                    }
+                    // if (res.status === '0') {
+                    resolve(res);
+                    // } else {
+                    // Toast(res.msg)
+                    // }
                 })
                 .catch((err) => {
                     Toast(err.message)

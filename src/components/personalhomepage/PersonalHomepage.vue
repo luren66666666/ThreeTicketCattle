@@ -1,6 +1,8 @@
 <template>
-    <div>
-        未标题-6-恢复的（个人主页）
+    <div class="personal-homepage">
+        <div class="personal-homepage-img">
+
+        </div>
     </div>
 </template>
 <script>
@@ -8,3 +10,11 @@ export default {
     
 }
 </script>
+<style lang="scss">
+    .personal-homepage{
+        .personal-homepage-img{
+            width: 100%;
+            height: 173px;
+        }
+    }
+</style>
