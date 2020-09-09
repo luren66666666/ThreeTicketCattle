@@ -12,8 +12,8 @@
         <van-grid-item   v-for="(item,index) in gridList" :text="item.text" @click="jumpClassify" :class="item.icon" :key="index" />
     </van-grid>
     <div class="operating-position">
-         <div><img src="../../assets/index-img/组 5.png" alt=""></div>
-         <div><img src="../../assets/index-img/组 6.png" alt=""></div>
+         <div><img src="../../assets/index-img/组 5.png" alt="" @click="luckyDraw"></div>
+         <div><img src="../../assets/index-img/组 6.png" alt=""  @click="tenSite"></div>
      </div>
        <div class="service-entry" @click="toServiceAssurance">
           <span>服务保障</span>
@@ -24,7 +24,7 @@
               <li>配送保障</li>
           </ul>
       </div>
-      <div class="middle-banner">
+      <div class="middle-banner" @click="recommend">
           <img src="https://img.piaoniu.com/misc/9ff0314237c236c796efbe132b5f00ec34e1630e.png" alt="">
       </div>
   </div>
@@ -90,7 +90,17 @@ export default {
     },
     jumpClassify(){
       this.$router.push("/indexClassify")
+    },
+    tenSite(){
+      this.$router.push('/thescene')
+    },
+    luckyDraw(){
+      this.$router.push('/noyuanfortheshow')
+    },
+    recommend(){
+      this.$router.push('/recommend')
     }
+    
   }
 };
 </script>

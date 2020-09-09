@@ -59,6 +59,10 @@ export default {
              
      
         },
+        beforeDestroy(){
+            this.ScrollHeight=numll
+            window.removeEventListener('scroll', this.ScrollHeight, true)
+        }
        
        
     }
