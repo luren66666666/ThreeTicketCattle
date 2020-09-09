@@ -222,6 +222,18 @@ const routes = [
         component: () =>
             import ('../components/addressadministration/AddressAdministration.vue'),
     },
+    //修改密码（导航跳转）
+    {
+        path: '/changepassword',
+        component: () =>
+            import ('../components/changepassword/ChangePassword.vue'),
+    },
+    //重置密码（导航跳转）
+    {
+        path: '/resetpasswords',
+        component: () =>
+            import ('../components/resetpasswords/ResetPasswords.vue'),
+    },
     //404路由
     {
         path: '*',
