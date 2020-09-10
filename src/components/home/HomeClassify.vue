@@ -6,34 +6,41 @@
         <van-search v-model="value" placeholder="搜索明星、演出、场所、景点" class="search-logo" shape="round"/>
         </div>
         <!-- 导航栏 -->
-        <van-tabs v-model="active" swipeable>
+        <!-- <van-tabs v-model="active" swipeable>
+        <van-tab v-for="(item, index) in list" 
+        :title="item.title" 
+        :key="index">
+         </van-tab>
+            </van-tabs> -->
+
+            <van-tabs v-model="active" swipeable>
             <van-tab v-for="(item, index) in list" 
+            
             :title="item.title" 
-            :key="index"
-            >
-            </van-tab>
-        </van-tabs>
-        <van-dropdown-menu>
-            <!-- 综合排序 -->
-                <van-dropdown-item v-model="values" :options="option" />
-                <!-- 全部时间 -->
-                <van-dropdown-item :title="date || '全部时间'" ref="item" v-model="value">
-                <van-cell title="9月演出" 
-                :value="date" 
-                @click="show = true" 
-                close-on-click-overlay="true"
-                />
-                <van-calendar v-model="show" @confirm="onConfirm" @select="aaa"/>
-                </van-dropdown-item>
-        </van-dropdown-menu>
+                    :key="index">
+            <van-dropdown-menu>
+                <!-- 综合排序 -->
+            <van-dropdown-item v-model="values" :options="option" />
+            <!-- 全部时间 -->
+            <van-dropdown-item :title="date || '全部时间'" ref="item" v-model="value">
+            <van-cell title="9月演出" 
+            :value="date" 
+            @click="show = true" 
+            close-on-click-overlay="true"
+            />
+            <van-calendar v-model="show" @confirm="onConfirm" @select="aaa"/>
+            </van-dropdown-item>
+            </van-dropdown-menu>
             <!-- 列表 -->
-            <van-card
+             <van-card
                 v-for="(item, index) in 10"
                 price="2.00"
                 desc="描述信息"
                 title="商品标题"
                 thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
                 :key="index"
+                @click="sidebarChange(index)"
+                
                 >
             <!-- @click="sidebarChange(item.id)" -->
 
@@ -50,6 +57,9 @@
                 </ul>
                 </div> -->
                 </van-card>
+                   </van-tab>
+             </van-tabs>
+
                 
     </div>
 </template>
@@ -67,6 +77,8 @@ export default {
         date: '',
         show:'',
         how: false,
+        sidebarChang:'',
+     
         option: [
         { text: '综合排序', value: 0 },
         { text: '最新优先', value: 1 },
@@ -120,7 +132,7 @@ export default {
             },
         ]
     }
-},methods: {
+},methods: { 
     aaa(date) {
         console.log(date)
     },
@@ -132,21 +144,11 @@ export default {
       this.date = this.formatDate(date);
       console.log(this.date)
     },
-    tabList(val){
-       console.log(val)
+    sidebarChange(id) {
+        console.log(id)
+      this.$router.push('/buyticket/' + id)
     }
-    //  sidebarChange(id) {
-    //   // console.log(this.sidebarList[index].id)
-    //   // console.log(id)
-    //   this.type = id
-    //   // 每次点击也要做请求
-    //   this.$store.dispatch('后端接口', {
-    //     type: this.type
-    //   })
-    // }  
-  },updated() {
-      
-  },
+  }
 }
 </script>
 <style lang="scss">

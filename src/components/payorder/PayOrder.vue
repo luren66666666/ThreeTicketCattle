@@ -43,7 +43,7 @@
     <div class="noticeba-zhifu">
 <img src="../../assets/支付订单_slices/96183333014238756 拷贝 5.png" alt=""><span class="noticeba-logo">农银快e付</span>
 <van-radio-group v-model="radio" class="noticeba-radio4">
-  <van-radio name="0"></van-radio>
+  <van-radio name=""></van-radio>
 </van-radio-group>
     </div>
     <van-button type="primary" block class="noticeba-button">确认支付</van-button>
@@ -53,7 +53,7 @@
 export default {
   data() {
     return {
-        radio:'1',
+        radio:'',
     };
   }
 };

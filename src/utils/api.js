@@ -31,3 +31,8 @@ export function getShiYanShuJu(params) {
 export function getCityInterface(params) {
     return http.post('http://10.31.155.38:8081/piaoniu/classify/search_addressCity', params)
 }
+//首页轮播图
+export function getHomeIndexSlideShow(params) {
+    return http.get('/home/banner', params)
+}
+// export function

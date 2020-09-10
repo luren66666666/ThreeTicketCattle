@@ -19,7 +19,7 @@
                class="field-ma"
                 placeholder="请输入短信验证码"
                 >
-                <template #button style="background: pink;">
+                <template #button>
                     <van-button size="small" type="primary">获取验证码</van-button>
                 </template>
                 </van-field>
@@ -83,5 +83,10 @@ export default {
         font-size: 16px;
         text-align: center;
     }
+   .van-button--primary{
+       background: pink;
+       
+   }
+    
 }
 </style>
