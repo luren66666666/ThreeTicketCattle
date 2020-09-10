@@ -92,7 +92,7 @@ const routes = [
     },
     //购票,相当于详情页（导航跳转）
     {
-        path: '/buyticket',
+        path: '/buyticket/:id',
         component: () =>
             import ('../components/buyticket/BuyTicket.vue'),
     },

@@ -3,3 +3,4 @@ import http from './http'
 export function getHomeIndexSlideShow(params) {
     return http.get('/home/banner', params)
 }
+// export function
