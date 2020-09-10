@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-31 20:00:24
- * @LastEditTime: 2020-09-04 16:01:24
+ * @LastEditTime: 2020-09-10 15:35:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \票牛\ThreeTicketCattle\src\components\home\HomeDiscover.vue
@@ -113,6 +113,7 @@
 </template>
 <script>
 import { Toast } from 'vant';
+import api from '../../utils/api'
 import img from '../../assets/img/组 17.png'
 import img1 from '../../assets/img/组 23.png'
 import img2 from '../../assets/img/组 24.png'
@@ -165,6 +166,7 @@ export default {
         onTab(i) {
             this.isIndex = i;
         },
+        // 下拉刷新
         onRefresh() {
             setTimeout(() => {
                 Toast('刷新成功');
@@ -172,6 +174,7 @@ export default {
                 this.count++;
             }, 1000);
         },
+        // 上拉加载
         onLoad() {
             // 异步更新数据
             // setTimeout 仅做示例，真实场景中一般为 ajax 请求
@@ -189,9 +192,11 @@ export default {
                 }
             }, 1000);
         },
+        // 跳转每日奖励
         toDailyReward() {
             this.$router.push('/dailyreward');
         },
+        // 跳转免费抽奖
         toFreePrizeDraw() {
             this.$router.push('/freeprizedraw');
         }
