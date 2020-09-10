@@ -101,7 +101,7 @@ import OrderIcon1 from "../../assets/MineImg/图标@2x(2).png"
 import OrderIcon2 from "../../assets/MineImg/图标@2x(3).png"
 import OrderIcon3 from "../../assets/MineImg/图标@2x(4).png"
 import OrderIcon4 from "../../assets/MineImg/图标@2x(5).png"
-import {cookie,getCityInterface} from "../../utils/api"
+import {cookie,getCityInterface,getLabel} from "../../utils/api"
 export default {
     data(){
         return {
@@ -187,7 +187,10 @@ export default {
     },
     mounted() {
         this.token = localStorage.getItem('token');
-        // getCityInterface().then((data)=>{console.log(data);})
+        // console.log(123);
+        getLabel({"sid":"1"}).then((data)=>{
+            // console.log(456);
+            console.log(data);})
         // console.log(cookie.get('token'));
     },
     methods: {

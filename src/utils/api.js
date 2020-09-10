@@ -21,16 +21,38 @@ export let cookie = {
     }
 }
 
-
-
-//测试获取数据
-export function getShiYanShuJu(params) {
-    return http.get('https://www.fastmock.site/mock/29b976a75d1031edc331aef0ba19b0ec/api/home/list', params)
-}
 //城市接口
 export function getCityInterface(params) {
     return http.post('http://10.31.155.38:8081/piaoniu/classify/search_addressCity', params)
 }
+//日历接口
+export function getData(params) {
+    return http.post('http://10.31.155.38:8081/piaoniu/classify/search_myDate', params)
+}
+//票类型接口接口
+export function getTicketType(params) {
+    return http.post('http://10.31.155.38:8081/piaoniu/classify/search_type', params)
+}
+//标签接口
+export function getLabel(params) {
+    return http.post('http://10.31.155.38:8081/piaoniu/classify/search_label', params)
+}
+
+
+//手机号注册，获取验证码
+export function getTelCode(params) {
+    return http.get('http://10.31.155.71:8081/piaoniu/SMS/sendSMS', params)
+}
+//手机号结合验证注册或登录
+export function getCodeLogin(params) {
+    return http.post('http://10.31.155.71:8081/piaoniu/user/register', params)
+}
+//密码登录
+export function getPasswordLogin(params) {
+    return http.post('http://10.31.155.71:8081/piaoniu/user/login', params)
+}
+
+
 //首页轮播图
 export function getHomeIndexSlideShow(params) {
     return http.get('/home/banner', params)
