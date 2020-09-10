@@ -1,3 +1,5 @@
+import { cookie } from './api'
+
 import axios from 'axios';
 import qs from 'qs';
 
@@ -5,13 +7,15 @@ import qs from 'qs';
 import { Toast } from 'vant';
 
 // 可以使用自定义配置新建一个 axios 实例
+
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
 var instance = axios.create({
     // 基础路径，相当于提出了公共部分
     baseURL: '',
     // 超时事件，在规定的时间内，如果没有请求到数据，就不请求了，返回错误信息
     timeout: 10000,
     // 同意添加请求头信息
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' }
+    headers: { 'Content-Type': 'application/json;charset=utf-8' }
 });
 
 // 添加请求拦截器
@@ -27,6 +31,26 @@ var instance = axios.create({
 //     // 对请求错误做些什么
 //     return Promise.reject(error);
 // });
+
+
+// http request拦截器 添加一个请求拦截器
+// instance.interceptors.request.use(function(config) {
+//     // Do something before request is sent
+//     //window.localStorage.getItem("accessToken") 获取token的value
+//     let token = cookie.get("accessToken")
+//     if (token) {
+//         //将token放到请求头发送给服务器,将tokenkey放在请求头中
+//         config.headers.accessToken = token;
+//         //也可以这种写法
+//         // config.headers['accessToken'] = Token;
+//         return config;
+//     }
+// }, function(error) {
+//     // Do something with request error
+//     return Promise.reject(error);
+// });
+
+
 
 // // 添加响应拦截器
 instance.interceptors.response.use(function(response) {
@@ -63,7 +87,8 @@ const http = {
         return new Promise((resolve, reject) => {
             // 默认情况下axios会将参数转成字符串进行传递
             // 引入一个qs的包
-            instance.post(url, qs.stringify(params))
+            // console.log(qs.stringify(params));
+            instance.post(url, params)
                 .then((res) => {
                     // if (res.status === '0') {
                     resolve(res);

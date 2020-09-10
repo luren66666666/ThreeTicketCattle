@@ -101,7 +101,7 @@ import OrderIcon1 from "../../assets/MineImg/图标@2x(2).png"
 import OrderIcon2 from "../../assets/MineImg/图标@2x(3).png"
 import OrderIcon3 from "../../assets/MineImg/图标@2x(4).png"
 import OrderIcon4 from "../../assets/MineImg/图标@2x(5).png"
-import {cookie,getCityInterface,getLabel} from "../../utils/api"
+import {cookie,getCityInterface,getLabel,getTicketType,getTelCode} from "../../utils/api"
 export default {
     data(){
         return {
@@ -186,11 +186,25 @@ export default {
         }
     },
     mounted() {
+        // let token = window.localStorage.getItem("accessToken");
+        // console.log(token);
         this.token = localStorage.getItem('token');
-        // console.log(123);
-        getLabel({"sid":"1"}).then((data)=>{
-            // console.log(456);
-            console.log(data);})
+
+        //获取标签接口
+        // getLabel({"tid":"1"}).then((data)=>{
+        //     console.log(data);
+        // });
+
+        //获取城市接口
+        // getCityInterface().then((data)=>{
+        //     console.log(data);
+        // })
+
+        //获取手机验证码接口
+        // getTelCode({"phoneNumber":"15798030553"}).then((data)=>{
+        //     console.log(data);
+        // })
+
         // console.log(cookie.get('token'));
     },
     methods: {
