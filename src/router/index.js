@@ -146,7 +146,7 @@ const routes = [
     },
     //立即购票03（导航跳转）
     {
-        path: '/threetheticketimmediately',
+        path: '/threetheticketimmediately/:change',
         component: () =>
             import ('../components/threetheticketimmediately/ThreeTheTicketImmediately.vue'),
     },

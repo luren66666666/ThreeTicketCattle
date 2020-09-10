@@ -11,11 +11,11 @@
             <div class="addressTiele">
                 <span>北京市</span> <span>北京市</span> <span>东城区</span> <span>陈志龙</span>
             </div>
-            <van-icon name="description" />
+            <van-icon name="description"  @click="changAddress('change')"/>
         </div>
 
         <!-- 添加新地址 -->
-        <div class="add-address" @click="addAddress">
+        <div class="add-address" @click="addAddress('add')">
             <span>+添加新地址</span>
         </div>
     </div>
@@ -28,8 +28,12 @@ export default {
         }
     },
     methods: {
-        addAddress(){//添加新地址
-            this.$router.push('/threetheticketimmediately')
+        //修改地址
+        changAddress(change){
+            this.$router.push('/threetheticketimmediately/'+change)
+        },
+        addAddress(add){//添加新地址
+            this.$router.push('/threetheticketimmediately/'+add)
         },
         onClickLeft(){
             this.$router.go(-1);

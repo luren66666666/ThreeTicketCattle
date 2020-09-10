@@ -1,6 +1,6 @@
 <template>
     <div class="buy-msg">
-         <van-nav-bar title="立即购票" 
+         <van-nav-bar :title="changeAddress" 
             left-arrow 
             @click-left="onClickLeft"
             @click-right="onClickRight">
@@ -51,6 +51,8 @@ import city from "../../../public/provinceList"
 export default {
     data() {
         return {
+            //新增地址，还是修改地址
+            changeAddress:'新增地址',
             tel: '',
             text1: '',
             text2:'',
@@ -84,7 +86,12 @@ export default {
             this.show = false
         },
     },
-    
+    mounted() {
+        //判断是从哪个页面调整过来的，是新增地址还是修改地址
+        if(this.$route.params.change==='change'){
+            this.changeAddress='修改地址';
+        }
+    },
 }
 </script>
 
